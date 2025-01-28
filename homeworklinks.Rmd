@@ -6,7 +6,7 @@ output:
   html_document:
     highlight: espresso
     keep_md: no 
-    theme: united
+    theme: sky
 ---
 
 ```{r setup, include=FALSE}
