@@ -1,5 +1,11 @@
 ---
 title: "My Website"
+output:
+  html_document:
+    highlight: tango
+    keep_md: no 
+    theme: united
+  pdf_document: default
 ---
 
 Hello, Website!
