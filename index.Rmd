@@ -2,7 +2,7 @@
 title: "My Website"
 output:
   html_document:
-    highlight: tango
+    highlight: espresso
     keep_md: no 
     theme: united
 ---
