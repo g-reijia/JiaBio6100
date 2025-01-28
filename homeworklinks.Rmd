@@ -1,10 +1,10 @@
 ---
 title: "Homework Links"
-author: "Grace (Rei) Jia"
+author: "Rei Jia"
 date: "2025-01-27"
 output:
   html_document:
-    highlight:
+    highlight: tango
     keep_md: no 
     theme: united
 ---
