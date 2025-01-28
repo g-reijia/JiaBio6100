@@ -15,4 +15,4 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 ### Homework for Computational Biology, Spring 2025
 
-Week 3 [Regular Expression Homework] (homework3.html)
+• Week 3 [Regular Expression Homework] (homework3.html)
