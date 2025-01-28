@@ -4,10 +4,9 @@ author: "Grace (Rei) Jia"
 date: "2025-01-27"
 output:
   html_document:
-    highlight: tango
+    highlight:
     keep_md: no 
     theme: united
-  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -15,4 +14,4 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 ### Homework for Computational Biology, Spring 2025
 
-• Week 3 [Regular Expression Homework] (homework3.html)
+- Week 3 [Regular Expression Homework] (homework3.html)
