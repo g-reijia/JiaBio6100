@@ -2,7 +2,7 @@
 title: "About This Website"
 output:
   html_document:
-    highlight: espresso
+    highlight: tango
     theme: journal
 ---
 

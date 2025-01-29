@@ -2,7 +2,7 @@
 title: "Rei's Website"
 output:
   html_document:
-    highlight: espresso
+    highlight: tango
     theme: journal
 ---
 
