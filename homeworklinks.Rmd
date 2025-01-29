@@ -1,5 +1,5 @@
 ---
-title: "Homework Links"
+title: "<u>Homework Links</u>"
 author: "Grace (Rei) Jia"
 date: "2025-01-27"
 output:
@@ -11,6 +11,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 #### <u> Homework </u>
 
 - January 29, Week 3, [Regular Expression Homework] (homework3.html)
