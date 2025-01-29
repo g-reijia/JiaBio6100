@@ -1,6 +1,6 @@
 ---
 title: "Homework Links"
-author: "Rei Jia"
+author: "Grace (Rei) Jia"
 date: "2025-01-27"
 output:
   html_document:
