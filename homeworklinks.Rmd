@@ -11,6 +11,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-#### Homework
+#### <u> Homework </u>
 
 - January 29, Week 3, [Regular Expression Homework] (homework3.html)
+
