@@ -3,7 +3,7 @@ title: "About This Website"
 output:
   html_document:
     highlight: espresso
-    theme: united
+    theme: journal
 ---
 
 

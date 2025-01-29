@@ -3,7 +3,7 @@ title: "Rei's Website"
 output:
   html_document:
     highlight: espresso
-    theme: united
+    theme: journal
 ---
 
 Hello! 

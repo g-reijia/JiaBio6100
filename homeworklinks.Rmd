@@ -5,7 +5,7 @@ date: "2025-01-27"
 output:
   html_document:
     highlight: espresso
-    theme: united
+    theme: journal
 ---
 
 ```{r setup, include=FALSE}
