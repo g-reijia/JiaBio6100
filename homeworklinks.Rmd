@@ -9,5 +9,5 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- January 29, Week 3, [Regular Expression Homework] (Testing.html)
+- January 29, Week 3, [Regular Expression Homework] (homework3.html)
 

@@ -2,7 +2,7 @@
 title: "Homework 3 - Regular Expression Puzzles"
 author: "Grace (Rei) Jia"
 date: "2025-01-29"
-output: 
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
