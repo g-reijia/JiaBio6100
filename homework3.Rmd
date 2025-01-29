@@ -206,3 +206,6 @@ Find the first (1) and second (2) character/word (1) (2) along with the commma b
 - Find: (\w{3})\w+,(\w{3})\w+,(.*),(\d+)
 - Replace:\1\2, \4, \3
 ```
+
+<u>Question 8</u>
+
