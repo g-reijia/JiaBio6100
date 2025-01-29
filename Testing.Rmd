@@ -1,5 +1,5 @@
 ---
-title: "Testing"
+title: "Homework 3"
 author: "Grace (Rei) Jia"
 date: "2025-01-29"
 output: html_document
@@ -10,11 +10,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-###All questions were completed using text editor, BBEdit
+All questions were completed using text editor, BBEdit
 
-####<u>Question 1</u>
+<u>Question 1</u>
 
-####What we have:
+What we have:
 
 ```         
 First String    Second      1.22      3.4
@@ -22,7 +22,7 @@ Second          More Text   1.555555  2.2220
 Third           x           3         124
 ```
 
-####What we want:
+What we want:
 
 ```         
 First String,Second,1.22,3.4
@@ -30,7 +30,7 @@ Second,More Text,1.555555,2.2220
 Third,x,3,124
 ```
 
-####How to do it:
+How to do it:
 
 ```         
 Find spaces between characteres and replace with commas.
@@ -39,9 +39,9 @@ Find spaces between characteres and replace with commas.
 - Replace: ,
 ```
 
-####<u>Question 2</u>
+<u>Question 2</u>
 
-####What we have:
+What we have:
 
 ```         
 Ballif, Bryan, University of Vermont
@@ -49,7 +49,7 @@ Ellison, Aaron, Harvard Forest
 Record, Sydne, Bryn Mawr
 ```
 
-####What we want:
+What we want:
 
 ```         
 Bryan Ballif (University of Vermont)
@@ -57,7 +57,7 @@ Aaron Ellison (Harvard Forest)
 Sydne Record (Bryn Mawr)
 ```
 
-####How to do it:
+How to do it:
 
 ```         
 Find the first character/word (1), find a comma, find a space, find the second character/word (2), find a space, add parenthesis and find everything else (3), and reorder the list.
@@ -66,15 +66,15 @@ Find the first character/word (1), find a comma, find a space, find the second c
 - Replace: \2 \1 (\3)
 ```
 
-####<u>Question 3</u>
+<u>Question 3</u>
 
-####What we have:
+What we have:
 
 ```         
 0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 0003 Winder Slide.mp3 0004 Walking Cane.mp3
 ```
 
-####What we want:
+What we want:
 
 ```         
 0001 Georgia Horseshoe.mp3
@@ -83,7 +83,7 @@ Find the first character/word (1), find a comma, find a space, find the second c
 0004 Walking Cane.mp3
 ```
 
-####How to do it:
+How to do it:
 
 ```         
 Find first character/word that is in front of ".mp3" (1) and add a line break.
@@ -92,9 +92,9 @@ Find first character/word that is in front of ".mp3" (1) and add a line break.
 - Replace: 1\n\
 ```
 
-####<u>Question 4</u>
+<u>Question 4</u>
 
-####What we have:
+What we have:
 
 ```         
 0001 Georgia Horseshoe.mp3
@@ -103,7 +103,7 @@ Find first character/word that is in front of ".mp3" (1) and add a line break.
 0004 Walking Cane.mp3
 ```
 
-####What we want:
+What we want:
 
 ```         
 Georgia Horseshoe_0001.mp3
@@ -112,7 +112,7 @@ Winder Slide_0003.mp3
 Walking Cane_0004.mp3
 ```
 
-####How to do it:
+How to do it:
 
 ```         
 Find the first four numbers, find the space, take everything in front of ".mp3", then add an underscore, and put ".mp3" back in its original spot.
@@ -121,9 +121,9 @@ Find the first four numbers, find the space, take everything in front of ".mp3",
 - Replace: \2_\1\.mp3
 ```
 
-####<u>Question 5</u>
+<u>Question 5</u>
 
-####What we have:
+What we have:
 
 ```         
 Camponotus,pennsylvanicus,10.2,44
@@ -132,7 +132,7 @@ Myrmica,punctiventris,12.2,4
 Lasius,neoniger,3.3,55
 ```
 
-####What we want:
+What we want:
 
 ```         
 C_pennsylvanicus,44
@@ -141,7 +141,7 @@ M_punctiventris,4
 L_neoniger,55
 ```
 
-####How to do it:
+How to do it:
 
 ```         
 Find the all of the characters, numbers, and commas within the string of text and remove them, then take the first letter of the first character/word (1), add an underscore, then add the third character/word (3) in the string of text.
@@ -150,9 +150,9 @@ Find the all of the characters, numbers, and commas within the string of text an
 - Replace: \1_\3
 ```
 
-####<u>Question 6</u>
+<u>Question 6</u>
 
-####What we have:
+What we have:
 
 ```         
 Camponotus,pennsylvanicus,10.2,44
@@ -161,7 +161,7 @@ Myrmica,punctiventris,12.2,4
 Lasius,neoniger,3.3,55
 ```
 
-####What we want:
+What we want:
 
 ```         
 C_penn,44
@@ -170,7 +170,7 @@ M_punc,4
 L_neon,55
 ```
 
-####How to do it:
+How to do it:
 
 ```         
 Find the all of the characters, numbers, and commas within the string of text and remove them, and replace them by putting the first character/word (1) with an underscore, then add the third character/word (3) in the string of text.
@@ -179,9 +179,9 @@ Find the all of the characters, numbers, and commas within the string of text an
 - Replace:\1_\2\3
 ```
 
-####<u>Question 7</u>
+<u>Question 7</u>
 
-####What we have:
+What we have:
 
 ```         
 Camponotus,pennsylvanicus,10.2,44
@@ -190,7 +190,7 @@ Myrmica,punctiventris,12.2,4
 Lasius,neoniger,3.3,55
 ```
 
-####What we want:
+What we want:
 
 ```         
 Campen, 44, 10.2
@@ -199,7 +199,7 @@ Myrpun, 4, 12.2
 Lasneo, 55, 3.3
 ```
 
-####How to do it:
+How to do it:
 
 ```         
 Find the first (1) and second (2) character/word (1) (2) along with the commma between them, then find the remaining numbers in the string of text, then isolate the first three letters in both the first (1) and the second (2) words, and reorder them with the fourth (4) character first, add a comma, then the third (3) character.
