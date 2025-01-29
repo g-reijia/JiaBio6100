@@ -1,5 +1,5 @@
 ---
-title: "My Website"
+title: "Rei's Website"
 output:
   html_document:
     highlight: espresso
