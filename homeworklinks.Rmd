@@ -11,6 +11,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-#### Homework for Computational Biology, Spring 2025
+#### Homework
 
-- Week 3, [Regular Expression Homework] (homework3.html)
+- January 29, Week 3, [Regular Expression Homework] (homework3.html)
