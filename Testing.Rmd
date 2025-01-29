@@ -208,7 +208,7 @@ Find the first (1) and second (2) character/word (1) (2) along with the commma b
 ```
 
 <u>Question 8</u>
-````
+```
 Column 3: pathogen_binary
 
 - Find:
@@ -228,3 +228,4 @@ Column 9: bee_caste
 
 - Find:
 - Replace:
+```
