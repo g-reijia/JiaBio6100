@@ -1,5 +1,5 @@
 ---
-title: "Homework 3"
+title: "Testing - Homework 3 - Regular Expression Puzzles"
 author: "Grace (Rei) Jia"
 date: "2025-01-29"
 output: html_document
@@ -8,7 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 
 All questions were completed using text editor, BBEdit
 
@@ -207,3 +206,25 @@ Find the first (1) and second (2) character/word (1) (2) along with the commma b
 - Find: (\w{3})\w+,(\w{3})\w+,(.*),(\d+)
 - Replace:\1\2, \4, \3
 ```
+
+<u>Question 8</u>
+````
+Column 3: pathogen_binary
+
+- Find:
+- Replace:
+
+Column 7: bombus_spp
+
+- Find:
+- Replace:
+
+Column 8: host_plant
+
+- Find:
+- Replace:
+
+Column 9: bee_caste
+
+- Find:
+- Replace:
