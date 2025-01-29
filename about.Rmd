@@ -1,5 +1,5 @@
 ---
-title: "About this Website"
+title: "About This Website"
 author: "Grace (Rei) Jia"
 date: "2025-01-27"
 output: html_document
