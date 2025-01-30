@@ -226,9 +226,16 @@ I expect to see "0s" in the place of "NAs", so I replaced them using the followi
 ```
 Problem 2: What are the main errors in bombus_spp and host_plant?
 ```
-There are a bunch of additional characters included in both bombus_spp and host_plant, so I removed them using the following method:
+There are a bunch of additional characters included in both bombus_spp and host_plant.
 
-- Find: 
+First, I removed additional characters by using the following method:
+
+- Find:(?<=\n).*(?=\n[^\n]*?\n)
+- Replace:
+
+However, this gets rid of the snake_case in the "id" row, so I put those back in by using the following method:
+
+- Find:
 - Replace:
 ```
 

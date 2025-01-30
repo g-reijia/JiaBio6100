@@ -392,9 +392,16 @@ expecting to see in this column?</p>
 - Find:(.*)(,NA,)
 - Replace:\1,0,</code></pre>
 <p>Problem 2: What are the main errors in bombus_spp and host_plant?</p>
-<pre><code>There are a bunch of additional characters included in both bombus_spp and host_plant, so I removed them using the following method:
+<pre><code>There are a bunch of additional characters included in both bombus_spp and host_plant.
 
-- Find: 
+First, I removed additional characters by using the following method:
+
+- Find:(?&lt;=\n).*(?=\n[^\n]*?\n)
+- Replace:
+
+However, this gets rid of the snake_case in the &quot;id&quot; row, so I put those back in by using the following method:
+
+- Find:
 - Replace:</code></pre>
 <p>Problem 3: Is there anything visibly wrong with bee_caste?</p>
 <pre><code>There are additional &quot;(space),&quot; behind &quot;worker&quot;, so I removed them using the following method:
