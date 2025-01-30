@@ -8,6 +8,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+Thanks George, you rock!
 
-- January 29, Week 3, [Regular Expression Homework] (Testing.html)
+- January 29 | Week 3 | [Regular Expression Homework](homework3.html)
 

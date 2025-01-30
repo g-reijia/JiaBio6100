@@ -9,5 +9,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Hello!
+
 Welcome to my website for Computational Biology, Spring 2025 with Dr. Nicholas J. Gotelli and TA, George Ni.
 
