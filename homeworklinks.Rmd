@@ -8,8 +8,34 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 Thanks George, you rock!
 
 - January 22 | Week 2 | [Adding Index Page to Website](index.html)
+
 - January 29 | Week 3 | [Regular Expression Homework](homework3.html)
-- 
+
+- February 5 | Week 4 |
+
+- February 12 | Week 5 |
+
+- February 19 | Week 6 |
+
+- February 26 | Week 7 |
+
+- March 5 | Week 8 |
+
+- March 19 | Week 9 |
+
+- March 26 | Week 10 |
+
+- April 2 | Week 11 |
+
+- April 9 | Week 12 |
+
+- April 16 | Week 13 |
+
+- April 23 | Week 14 |
+
+- April 30 | Week 15 |
+
