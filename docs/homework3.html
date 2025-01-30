@@ -359,7 +359,9 @@ C_herc,3
 M_punc,4
 L_neon,55</code></pre>
 <p>How to do it:</p>
-<pre><code>Find the all of the characters, numbers, and commas within the string of text and remove them, and replace them by putting the first character/word (1) with an underscore, then add the third character/word (3) in the string of text.
+<pre><code>Find the all of the characters, numbers, and commas within the string of text and remove them, and 
+replace them by putting the first character/word (1) with an underscore, then add the third
+character/word (3) in the string of text.
 
 - Find: (\w)\w+.(\w{4})\w+,\d+.\d(,\d+)
 - Replace:\1_\2\3</code></pre>
@@ -375,7 +377,10 @@ Camher, 3, 10.5
 Myrpun, 4, 12.2
 Lasneo, 55, 3.3</code></pre>
 <p>How to do it:</p>
-<pre><code>Find the first (1) and second (2) character/word (1) (2) along with the commma between them, then find the remaining numbers in the string of text, then isolate the first three letters in both the first (1) and the second (2) words, and reorder them with the fourth (4) character first, add a comma, then the third (3) character.
+<pre><code>Find the first (1) and second (2) character/word (1) (2) along with the commma between them, then find 
+the remaining numbers in the string of text, then isolate the first three letters in both the first (1) 
+and the second (2) words, and reorder them with the fourth (4) character first, add a comma, then the 
+third (3) character.
 
 - Find: (\w{3})\w+,(\w{3})\w+,(.*),(\d+)
 - Replace:\1\2, \4, \3</code></pre>

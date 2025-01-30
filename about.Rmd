@@ -9,6 +9,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- First year PhD student in the Department of Plant Biology
-- Advisor: Dr. Stephen Keller
+Not much to say other than "welcome!"
+
 
