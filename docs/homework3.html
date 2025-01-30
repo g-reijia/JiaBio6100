@@ -286,8 +286,8 @@ Third,x,3,124</code></pre>
 <p>How to do it:</p>
 <pre><code>Find spaces between characteres and replace with commas.
 
-- Find: \s{2,}
-- Replace: ,</code></pre>
+- Find:\s{2,}
+- Replace:,</code></pre>
 <p><u>Question 2</u></p>
 <p>What we have:</p>
 <pre><code>Ballif, Bryan, University of Vermont
@@ -300,8 +300,8 @@ Sydne Record (Bryn Mawr)</code></pre>
 <p>How to do it:</p>
 <pre><code>Find the first character/word (1), find a comma, find a space, find the second character/word (2), find a space, add parenthesis and find everything else (3), and reorder the list.
 
-- Find: (\w+),\s*(\w+),\s(.*)
-- Replace: \2 \1 (\3)</code></pre>
+- Find:(\w+),\s*(\w+),\s(.*)
+- Replace:\2 \1 (\3)</code></pre>
 <p><u>Question 3</u></p>
 <p>What we have:</p>
 <pre><code>0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 0003 Winder Slide.mp3 0004 Walking Cane.mp3</code></pre>
@@ -313,8 +313,8 @@ Sydne Record (Bryn Mawr)</code></pre>
 <p>How to do it:</p>
 <pre><code>Find first character/word that is in front of &quot;.mp3&quot; (1) and add a line break.
 
-- Find: (.mp3+)\s
-- Replace: 1\n\</code></pre>
+- Find:(.mp3+)\s
+- Replace:1\n\</code></pre>
 <p><u>Question 4</u></p>
 <p>What we have:</p>
 <pre><code>0001 Georgia Horseshoe.mp3
@@ -329,8 +329,8 @@ Walking Cane_0004.mp3</code></pre>
 <p>How to do it:</p>
 <pre><code>Find the first four numbers, find the space, take everything in front of &quot;.mp3&quot;, then add an underscore, and put &quot;.mp3&quot; back in its original spot.
 
-- Find: (\d{4})\s(.*[^.mp3])(.mp3)
-- Replace: \2_\1\.mp3</code></pre>
+- Find:(\d{4})\s(.*[^.mp3])(.mp3)
+- Replace:\2_\1\.mp3</code></pre>
 <p><u>Question 5</u></p>
 <p>What we have:</p>
 <pre><code>Camponotus,pennsylvanicus,10.2,44
@@ -345,8 +345,8 @@ L_neoniger,55</code></pre>
 <p>How to do it:</p>
 <pre><code>Find the all of the characters, numbers, and commas within the string of text and remove them, then take the first letter of the first character/word (1), add an underscore, then add the third character/word (3) in the string of text.
 
-- Find: (\w)(\w+),(\w+),(\w*..)
-- Replace: \1_\3</code></pre>
+- Find:(\w)(\w+),(\w+),(\w*..)
+- Replace:\1_\3</code></pre>
 <p><u>Question 6</u></p>
 <p>What we have:</p>
 <pre><code>Camponotus,pennsylvanicus,10.2,44
@@ -363,7 +363,7 @@ L_neon,55</code></pre>
 replace them by putting the first character/word (1) with an underscore, then add the third
 character/word (3) in the string of text.
 
-- Find: (\w)\w+.(\w{4})\w+,\d+.\d(,\d+)
+- Find:(\w)\w+.(\w{4})\w+,\d+.\d(,\d+)
 - Replace:\1_\2\3</code></pre>
 <p><u>Question 7</u></p>
 <p>What we have:</p>
@@ -382,28 +382,25 @@ the remaining numbers in the string of text, then isolate the first three letter
 and the second (2) words, and reorder them with the fourth (4) character first, add a comma, then the 
 third (3) character.
 
-- Find: (\w{3})\w+,(\w{3})\w+,(.*),(\d+)
+- Find:(\w{3})\w+,(\w{3})\w+,(.*),(\d+)
 - Replace:\1\2, \4, \3</code></pre>
 <p><u>Question 8</u></p>
-<pre><code>Column 3: pathogen_binary
+<p>Problem 1: Look at the pathogen_binary column-what input are you
+expecting to see in this column?</p>
+<pre><code>I expect to see &quot;0s&quot; in the place of &quot;NAs&quot;, so I replaced them using the following method:
 
-- Find:
-- Replace:
+- Find:(.*)(,NA,)
+- Replace:\1,0,</code></pre>
+<p>Problem 2: What are the main errors in bombus_spp and host_plant?</p>
+<pre><code>There are a bunch of additional characters included in both bombus_spp and host_plant, so I removed them using the following method:
 
-Column 7: bombus_spp
-
-- Find:
-- Replace:
-
-Column 8: host_plant
-
-- Find:
-- Replace:
-
-Column 9: bee_caste
-
-- Find:
+- Find: 
 - Replace:</code></pre>
+<p>Problem 3: Is there anything visibly wrong with bee_caste?</p>
+<pre><code>There are additional &quot;(space),&quot; behind &quot;worker&quot;, so I removed them using the following method:
+
+- Find: ,
+- Replace:,</code></pre>
 
 
 
