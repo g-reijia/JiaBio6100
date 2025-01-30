@@ -4,6 +4,6 @@ output:
   html_document:
     theme: journal
 ---
-
-
+```
 Welcome to my website for Computational Biology, Spring 2025 with Dr. Nicholas J. Gotelli and TA, George Ni.
+```
