@@ -2,7 +2,9 @@
 title: "Testing - Homework 3 - Regular Expression Puzzles"
 author: "Grace (Rei) Jia"
 date: "2025-01-29"
-output: html_document
+output: 
+  html_document:
+    theme: united
 ---
 
 ```{r setup, include=FALSE}
@@ -209,7 +211,7 @@ Find the first (1) and second (2) character/word (1) (2) along with the commma b
 
 <u>Question 8</u>
 ```
-Column 3: pathogen_binary
+Column 3: pathogen_binary, replacing NA with 0s, since it's binary!
 
 - Find:
 - Replace:
