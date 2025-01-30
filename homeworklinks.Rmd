@@ -10,6 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 Thanks George, you rock!
 
+- January 22 | Week 2 | [Adding Index Page to Website](index.html)
 - January 29 | Week 3 | [Regular Expression Homework](homework3.html)
-
 - 
