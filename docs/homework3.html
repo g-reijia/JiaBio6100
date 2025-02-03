@@ -394,15 +394,15 @@ expecting to see in this column?</p>
 <p>Problem 2: What are the main errors in bombus_spp and host_plant?</p>
 <pre><code>There are a bunch of additional characters included in both bombus_spp and host_plant.
 
-First, I removed additional characters by using the following method:
+First, I wanted to remove additional characters and did that using the following method:
+- Find:[^,/.a-zA-Z\d\s:]
+- Replace: (don&#39;t replace anything)
 
-- Find:(?&lt;=\n).*(?=\n[^\n]*?\n)
-- Replace:
+However, I noticed that this removed the underscores in the first row. I tried to isolate the first row and only remove characters from lines 2-21. I spent about 5 hours trying to figure this out with no luck, but here is the code I used to isolate the first row from the remianing lines.
 
-However, this gets rid of the snake_case in the &quot;id&quot; row, so I put those back in by using the following method:
-
-- Find:
-- Replace:</code></pre>
+- Find:(?&lt;=\n).*(?=\n) 
+- Replace:(don&#39;t replace anything)
+</code></pre>
 <p>Problem 3: Is there anything visibly wrong with bee_caste?</p>
 <pre><code>There are additional &quot;(space),&quot; behind &quot;worker&quot;, so I removed them using the following method:
 
