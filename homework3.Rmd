@@ -1,5 +1,5 @@
 ---
-title: "<u>Homework 3</u>"
+title: "<u>Homework 3 - Regular Expression Puzzles</u>"
 author: "Grace (Rei) Jia"
 date: "2025-01-29"
 output: 

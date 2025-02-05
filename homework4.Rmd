@@ -1,5 +1,5 @@
 ---
-title: "<u>Homework 4</u>"
+title: "<u>Homework 4 - Atomic Vectors and Basic R</u>"
 author: "Grace (Rei) Jia"
 date: "2025-02-05"
 output: 
@@ -12,25 +12,25 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <u>Question 1</u>
-```
+```{r}
 x <- 1.1
 a <- 2.2
 b <- 3.3
 ```
 a)
-```
+```{r}
 z <- x^(a^b)
 print(z)
 ```
 
 b)
-```
+```{r}
 z <- (x^a)^b
 print(z)
 ```
 
 c)
-```
+```{r}
 z <- 3*x^3 + 2*x^2 + 1
 print(z)
 
@@ -39,75 +39,74 @@ print(z)
 <u>Question 2</u>
 
 a)
-```
+```{r}
 c(seq(1,8),seq(7,1))
 ```
 
 b)
-```
+```{r}
 rep(x=seq(1,5),times=seq(1,5))
 ```
 
 c)
-```
+```{r}
 rep(x=seq(5,1),times=seq(1,5))
 ```
 
 <u>Question 3</u>
-```
-coordinates <-runif(2)
-polar_coordinates <- asin(coordinates)
-print(polar_coordinates)
+```{r}
+cartesian_coords <-runif(2)
+polar_coords <- c(((cartesian_coords[1])^2 + (cartesian_coords[2])^2), (atan(cartesian_coords[2]/cartesian_coords[1])))
+print(polar_coords)
 ```
 
 <u>Question 4</u>
-```
+```{r}
 queue <- c("sheep", "fox", "owl", "ant")
-
 ```
 
 a)
-```
+```{r}
 queue <- c(queue, "serpent")
 print(queue)
 ```
 
 b)
-```
+```{r}
 queue <- queue[-1]
 print(queue)
 ```
 
 c)
-```
+```{r}
 queue <- c("donkey", queue)
 print(queue)
 ```
 
 d)
-```
+```{r}
 queue <- queue[-5]
 print(queue)
 ```
 
 e)
-```
+```{r}
 queue <- queue[-3]
 print(queue)
 ```
 
 f)
-```
+```{r}
 queue <- c(queue[1:2], "aphid", queue[3])
 print(queue)
 ```
 g)
-```
+```{r}
 print(length(queue[-1]))
 ```
 
 <u>Question 5</u>
-```
+```{r}
 q5vector <- seq(1,100)
-print(
+print(which(q5vector%%2 & q5vector%%3 & q5vector%%7))
 ```
