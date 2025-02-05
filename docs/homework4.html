@@ -313,9 +313,10 @@ print(z)</code></pre>
 <pre><code>##  [1] 5 4 4 3 3 3 2 2 2 2 1 1 1 1 1</code></pre>
 <p><u>Question 3</u></p>
 <pre class="r"><code>cartesian_coords &lt;-runif(2)
-polar_coords &lt;- c(((cartesian_coords[1])^2 + (cartesian_coords[2])^2), (atan(cartesian_coords[2]/cartesian_coords[1])))
+polar_coords &lt;- c(((cartesian_coords[1])^2 + (cartesian_coords[2])^2), 
+                  (atan(cartesian_coords[2]/cartesian_coords[1])))
 print(polar_coords)</code></pre>
-<pre><code>## [1] 0.16237715 0.02033769</code></pre>
+<pre><code>## [1] 1.027370 1.168161</code></pre>
 <p><u>Question 4</u></p>
 <pre class="r"><code>queue &lt;- c(&quot;sheep&quot;, &quot;fox&quot;, &quot;owl&quot;, &quot;ant&quot;)</code></pre>
 <ol style="list-style-type: lower-alpha">

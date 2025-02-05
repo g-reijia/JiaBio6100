@@ -56,7 +56,8 @@ rep(x=seq(5,1),times=seq(1,5))
 <u>Question 3</u>
 ```{r}
 cartesian_coords <-runif(2)
-polar_coords <- c(((cartesian_coords[1])^2 + (cartesian_coords[2])^2), (atan(cartesian_coords[2]/cartesian_coords[1])))
+polar_coords <- c(((cartesian_coords[1])^2 + (cartesian_coords[2])^2), 
+                  (atan(cartesian_coords[2]/cartesian_coords[1])))
 print(polar_coords)
 ```
 
