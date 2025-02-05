@@ -1,0 +1,112 @@
+---
+title: "<u>Homework 4</u>"
+author: "Grace (Rei) Jia"
+date: "2025-02-05"
+output: 
+  html_document:
+    theme: journal
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<u>Question 1</u>
+```
+x <- 1.1
+a <- 2.2
+b <- 3.3
+```
+a)
+```
+z <- x^(a^b)
+print(z)
+```
+
+b)
+```
+z <- (x^a)^b
+print(z)
+```
+
+c)
+```
+z <- 3*x^3 + 2*x^2 + 1
+print(z)
+
+```
+
+<u>Question 2</u>
+
+a)
+```
+c(seq(1,8),seq(7,1))
+```
+
+b)
+```
+rep(x=seq(1,5),times=seq(1,5))
+```
+
+c)
+```
+rep(x=seq(5,1),times=seq(1,5))
+```
+
+<u>Question 3</u>
+```
+vector <-runif(2)
+
+polar <- 
+```
+
+<u>Question 4</u>
+```
+queue <- c("sheep", "fox", "owl", "ant")
+
+```
+
+a)
+```
+queue <- c(queue, "serpent")
+print(queue)
+```
+
+b)
+```
+queue <- queue[-1]
+print(queue)
+```
+
+c)
+```
+queue <- c("donkey", queue)
+print(queue)
+```
+
+d)
+```
+queue <- queue[-5]
+print(queue)
+```
+
+e)
+```
+queue <- queue[-3]
+print(queue)
+```
+
+f)
+```
+queue <- c(queue[1:2], "aphid", queue[3])
+print(queue)
+```
+g)
+```
+print(length(queue[-1]))
+```
+
+<u>Question 5</u>
+```
+
+```
