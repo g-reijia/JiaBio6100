@@ -15,7 +15,7 @@ Thanks George, you rock!
 
 - January 29 | Week 3 | [Regular Expressions](homework3.html)
 
-- February 5 | Week 4 |
+- February 5 | Week 4 | [Atomic Vectors & Basic R](homework4.html)
 
 - February 12 | Week 5 |
 
