@@ -312,11 +312,14 @@ print(z)</code></pre>
 <pre class="r"><code>rep(x=seq(5,1),times=seq(1,5))</code></pre>
 <pre><code>##  [1] 5 4 4 3 3 3 2 2 2 2 1 1 1 1 1</code></pre>
 <p><u>Question 3</u></p>
-<pre class="r"><code>cartesian_coords &lt;-runif(2)
-polar_coords &lt;- c(((cartesian_coords[1])^2 + (cartesian_coords[2])^2), 
-                  (atan(cartesian_coords[2]/cartesian_coords[1])))
+<pre class="r"><code>cartesian_coords &lt;- runif(2)
+print(cartesian_coords)</code></pre>
+<pre><code>## [1] 0.1947080 0.3185241</code></pre>
+<pre class="r"><code>r &lt;- sqrt(cartesian_coords[1])^2 + (cartesian_coords[2])^2
+theta &lt;- atan(cartesian_coords[2]/cartesian_coords[1])
+polar_coords &lt;- c(r, theta)
 print(polar_coords)</code></pre>
-<pre><code>## [1] 1.027370 1.168161</code></pre>
+<pre><code>## [1] 0.2961657 1.0221225</code></pre>
 <p><u>Question 4</u></p>
 <pre class="r"><code>queue &lt;- c(&quot;sheep&quot;, &quot;fox&quot;, &quot;owl&quot;, &quot;ant&quot;)</code></pre>
 <ol style="list-style-type: lower-alpha">
