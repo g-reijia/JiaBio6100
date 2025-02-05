@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<u>Question 1</u>
+<u>Question 1:</u> Suppose x = 1.1, a = 2.2, and b = 3.3. Assign each expression to the value of the variable z and print the value stored in z.
 ```{r}
 x <- 1.1
 a <- 2.2
@@ -36,24 +36,24 @@ print(z)
 
 ```
 
-<u>Question 2</u>
+<u>Question 2:</u>Using the rep and seq functions, create the following vectors:
 
-a)
+a) (1,2,3,4,5,6,7,8,7,6,5,4,3,2,1)
 ```{r}
 c(seq(1,8),seq(7,1))
 ```
 
-b)
+b) (1,2,2,3,3,3,4,4,4,4,5,5,5,5,5)
 ```{r}
 rep(x=seq(1,5),times=seq(1,5))
 ```
 
-c)
+c) (5,4,4,3,3,3,2,2,2,2,1,1,1,1,1)
 ```{r}
 rep(x=seq(5,1),times=seq(1,5))
 ```
 
-<u>Question 3</u>
+<u>Question 3:</u> Create a vector of two random uniform numbers. In a spatial map, these can be interpreted as x and y coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped). Using one of R’s inverse trigonometry functions (asin(), acos(), or atan()), convert these numbers into polar coordinates.
 ```{r}
 cartesian_coords <- runif(2)
 print(cartesian_coords)
@@ -65,52 +65,52 @@ polar_coords <- c(r, theta)
 print(polar_coords)
 ```
 
-<u>Question 4</u>
+<u>Question 4:</u> Create a vector queue <- c("sheep", "fox", "owl", "ant") where queue represents the animals that are lined up to enter Noah’s Ark, with the sheep at the front of the line. Using R expressions, update queue as:
 ```{r}
 queue <- c("sheep", "fox", "owl", "ant")
 ```
 
-a)
+a) the serpent arrives and gets in line;
 ```{r}
 queue <- c(queue, "serpent")
 print(queue)
 ```
 
-b)
+b) the sheep enters the ark;
 ```{r}
 queue <- queue[-1]
 print(queue)
 ```
 
-c)
+c) the donkey arrives and talks his way to the front of the line;
 ```{r}
 queue <- c("donkey", queue)
 print(queue)
 ```
 
-d)
+d) the serpent gets impatient and leaves;
 ```{r}
 queue <- queue[-5]
 print(queue)
 ```
 
-e)
+e) the owl gets bored and leaves;
 ```{r}
 queue <- queue[-3]
 print(queue)
 ```
 
-f)
+f) the aphid arrives and the ant invites him to cut in line.
 ```{r}
 queue <- c(queue[1:2], "aphid", queue[3])
 print(queue)
 ```
-g)
+g) Finally, determine the position of the aphid in the line.
 ```{r}
 print(length(queue[-1]))
 ```
 
-<u>Question 5</u>
+<u>Question 5:</u> Use R to create a vector of all of the integers from 1 to 100 that are not divisible by 2, 3, or 7. 
 ```{r}
 q5vector <- seq(1,100)
 print(which(q5vector%%2 & q5vector%%3 & q5vector%%7))

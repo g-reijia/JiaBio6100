@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 All questions were completed using text editor, BBEdit
 
-<u>Question 1</u>
+<u>Question 1:</u>
 
 What we have:
 
@@ -39,7 +39,7 @@ How to do it: Find spaces between characteres and replace with commas.
 - Replace: ,
 ```
 
-<u>Question 2</u>
+<u>Question 2:</u>
 
 What we have:
 
@@ -64,7 +64,7 @@ How to do it: Find the first character/word (1), find a comma, find a space, fin
 - Replace: \2 \1 (\3)
 ```
 
-<u>Question 3</u>
+<u>Question 3:</u>
 
 What we have:
 
@@ -88,7 +88,7 @@ How to do it: Find first character/word that is in front of ".mp3" (1) and add a
 - Replace: 1\n\
 ```
 
-<u>Question 4</u>
+<u>Question 4:</u>
 
 What we have:
 
@@ -115,7 +115,7 @@ How to do it: Find the first four numbers, find the space, take everything in fr
 - Replace: \2_\1\.mp3
 ```
 
-<u>Question 5</u>
+<u>Question 5:</u>
 
 What we have:
 
@@ -142,7 +142,7 @@ How to do it: Find the all of the characters, numbers, and commas within the str
 - Replace: \1_\3
 ```
 
-<u>Question 6</u>
+<u>Question 6:</u>
 
 What we have:
 
@@ -171,7 +171,7 @@ character/word (3) in the string of text.
 - Replace: \1_\2\3
 ```
 
-<u>Question 7</u>
+<u>Question 7:</u>
 
 What we have:
 
@@ -201,7 +201,7 @@ third (3) character.
 - Replace: \1\2, \4, \3
 ```
 
-<u>Question 8</u>
+<u>Question 8:</u>
 
 <u>Problem 1:</u> Look at the pathogen_binary column-what input are you expecting to see in this column?
 
@@ -215,10 +215,10 @@ third (3) character.
 
 - There are a bunch of additional characters included in both bombus_spp and host_plant.
 
-- First, I wanted to remove additional characters and did that using the following (method 1)
+- First, I wanted to remove additional characters and did that using the following (method 1.)
 
 - However, I noticed that this removed the underscores in the first row. I tried to isolate the first row 
-and only remove characters from lines 2-21. I spent about 5 hours trying to figure this out with no luck, but here is the code I used to isolate the first row from the remaining lines. (method 2)
+and only remove characters from lines 2-21. I spent about 5 hours trying to figure this out with no luck, but here is the code I used to isolate the first row from the remaining lines (method 2.)
 ```
  Method, part 1:
 - Find: [^,/.a-zA-Z\d\s:]
