@@ -17,7 +17,7 @@ Thanks George, you rock!
 
 - February 5 | Week 4 | [Atomic Vectors & Basic R](homework4.html)
 
-- February 12 | Week 5 |
+- February 12 | Week 5 | [Matrices, Lists, and Data Frames](homework5.html)
 
 - February 19 | Week 6 |
 
