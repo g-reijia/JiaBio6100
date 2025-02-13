@@ -2,7 +2,9 @@
 title: "<u>Homework 5 - Matrices, Lists, and Data frames</u>"
 author: "Grace (Rei) Jia"
 date: "2025-02-12"
-output: html_document
+output: 
+  html_document:
+    theme: journal
 ---
 
 ```{r setup, include=FALSE}
@@ -41,6 +43,7 @@ sum(matrix1[2,])
 Read about the eigen() function and use it on your matrix. Look carefully at the elements of $values and $vectors in the output. What kind of numbers are these?
 ```{r}
 matrix_eigen <- eigen(matrix1)
+print(matrix_eigen)
 ```
 
 Dig in with the typeof() function to figure out their type.
