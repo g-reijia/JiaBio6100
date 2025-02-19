@@ -1,0 +1,40 @@
+---
+title: "<u>Homework 6 – Creating Fake Data Sets To Explore Hypotheses</u>"
+author: "Grace (Rei) Jia"
+date: "2025-02-19"
+output: 
+  html_document:
+    theme: journal
+---
+
+library(tidyverse)
+library(ggplot2)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Data is subsetted from 1987-2018 cyanobacteria and water quality data for 20 reservoirs by Smucker et al. (2021) focusing on Buckhorn Lake Reservoir.
+
+
+Reading in data and cleaning it up
+```{r}
+buckhornlake_df <- read.csv("buckhornlake.csv", sep=",")
+str(buckhornlake_df)
+```
+```{r}
+buckhornlake_df<- na.omit(buckhornlake_df)
+summary(buckhornlake_df$temperature)
+```
+
+Plotting the data
+```{r}
+buckhornlake_model <- lm(year ~ temperature, data = buckhornlake_df)
+summary(buckhornlake_model)
+plot(buckhornlake_model$residuals)
+plot1 <- ggplot(buckhorn_model, aes(x = temperature)) + 
+          geom_histogram(binwidth = 2, fill = "blue", color = "black", alpha = 0.7) +
+          theme_minimal() +
+          labs(title = "Temperature on Buckhorn Lake Reservoir", x = "Temperature", y = "Frequency")
+print(plot1)
+```
