@@ -29,7 +29,7 @@ str(iris1)
 ```
 - There are 28 observations and 5 variables in iris1.
 
-<u>Question 3:</u>Now, create a iris2 data frame from iris1 that contains only the columns for Species, Sepal.Length, and Sepal.Width. How many observations and variables are in the data set?
+<u>Question 3:</u> Now, create a iris2 data frame from iris1 that contains only the columns for Species, Sepal.Length, and Sepal.Width. How many observations and variables are in the data set?
 
 ```{r}
 iris2 <- iris1 %>%
@@ -38,7 +38,7 @@ str(iris2)
 ```
 - There are 28 observations and 3 variables in iris2.
 
-<u>Question 4:</u>Create an iris3 data frame from iris2 that orders the observations from largest to smallest sepal length. Show the first 6 rows of this data set.
+<u>Question 4:</u> Create an iris3 data frame from iris2 that orders the observations from largest to smallest sepal length. Show the first 6 rows of this data set.
 
 ```{r}
 iris3 <- iris2 %>%
