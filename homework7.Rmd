@@ -1,0 +1,13 @@
+---
+title: "<u>Homework 7 – Data Manipulations using the dplyr Package</u>"
+author: "Grace (Rei) Jia"
+date: "2025-02-26"
+output: 
+  html_document:
+    theme: journal
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
