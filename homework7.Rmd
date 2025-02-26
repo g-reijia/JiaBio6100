@@ -87,6 +87,6 @@ head(irisFinal)
 
 ```{r setup, include=FALSE}
 iris_long <- iris %>%
-   pivot_longer(cols = Sepal.Length:Sepal.Width:Petal.Width, names_to="Measure", values_to="Value")
-head(iris_long)
+   pivot_longer(cols = Sepal.Length:Petal.Width, names_to="Measure", values_to="Value")
+print(iris_long)
 ```
