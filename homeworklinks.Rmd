@@ -19,9 +19,9 @@ Thanks George, you rock!
 
 - February 12 | Week 5 | [Matrices, Lists, and Data Frames](homework5.html)
 
-- February 19 | Week 6 | [Creating Fake Data Sets To Explore Hypotheses](homework6.html)
+- February 19 | Week 6 | [Creating Fake Data Sets To Explore Hypotheses](homework6.html) - not done with this yet, sorry!
 
-- February 26 | Week 7 |
+- February 26 | Week 7 | [Data Manipulations using the dplyr package](homework7.html)
 
 - March 5 | Week 8 |
 
