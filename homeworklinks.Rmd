@@ -21,7 +21,7 @@ Thanks George, you rock!
 
 - February 19 | Week 6 | [Creating Fake Data Sets To Explore Hypotheses](homework6.html) - not done with this yet, sorry!
 
-- February 26 | Week 7 | [Data Manipulations using the dplyr package](homework7.html)
+- February 26 | Week 7 | [Data Manipulations Using the dplyr Package](homework7.html)
 
 - March 5 | Week 8 |
 
