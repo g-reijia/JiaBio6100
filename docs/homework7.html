@@ -328,7 +328,7 @@ head(iris3)</code></pre>
 ## 4 versicolor          6.6         2.9
 ## 5 versicolor          6.7         3.1
 ## 6 versicolor          6.8         2.8</code></pre>
-<p><u>Question 5:</u>Create an iris4 data frame from iris3 that creates
+<p><u>Question 5:</u> Create an iris4 data frame from iris3 that creates
 a column with a sepal area (length * width) value for each observation.
 How many observations and variables are in the data set?</p>
 <pre class="r"><code>iris4 &lt;- iris3 %&gt;%
@@ -342,14 +342,14 @@ str(iris4)</code></pre>
 <ul>
 <li>There are 28 observations and 4 variables in iris4.</li>
 </ul>
-<p><u>Question 6:</u>Create iris5 that calculates the average sepal
+<p><u>Question 6:</u> Create iris5 that calculates the average sepal
 length, the average sepal width, and the sample size of the entire iris4
 data frame and print iris5.</p>
 <pre class="r"><code>iris5 &lt;- summarize(iris4, av_mean_SepalLength=mean(iris4$Sepal.Length), av_mean_SepalWidth=mean(iris4$Sepal.Width), number=n())
 print(iris5)</code></pre>
 <pre><code>##   av_mean_SepalLength av_mean_SepalWidth number
 ## 1            6.821429           3.078571     28</code></pre>
-<p><u>Question 7:</u>Finally, create iris6 that calculates the average
+<p><u>Question 7:</u> Finally, create iris6 that calculates the average
 sepal length, the average sepal width, and the sample size for each
 species of in the iris4 data frame and print iris6.</p>
 <pre class="r"><code>iris6 &lt;- iris4 %&gt;%
@@ -361,7 +361,7 @@ print(iris6)</code></pre>
 ##   &lt;fct&gt;                    &lt;dbl&gt;              &lt;dbl&gt;  &lt;int&gt;
 ## 1 versicolor                6.82               3.08      8
 ## 2 virginica                 6.82               3.08     20</code></pre>
-<p><u>Question 8:</u>In these exercises, you have successively modified
+<p><u>Question 8:</u> In these exercises, you have successively modified
 different versions of the data frame iris1 iris2 iris3 iris4 iris5
 iris6. At each stage, the output data frame from one operation serves as
 the input from the next. A more efficient way to do this is to use the
