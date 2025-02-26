@@ -6,13 +6,6 @@ output:
   html_document:
     theme: journal
 ---
-<u>Loading Packages</u>
-
-```{r setup, include=FALSE}
-library(tidyverse)
-```
-
-
 <u>Question 1:</u> Examine the structure of the iris data set. How many observations and variables are in the data set?
 
 ```{r}
