@@ -23,9 +23,9 @@ Thanks George, you rock!
 
 - February 26 | Week 7 | [Data Manipulations Using the dplyr Package](homework7.html)
 
-- March 5 | Week 8 |
+- March 5 | Week 8 | No Homework / Catch up day
 
-- March 19 | Week 9 |
+- March 19 | Week 9 | 
 
 - March 26 | Week 10 |
 

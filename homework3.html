@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Grace (Rei) Jia" />
 
+<meta name="date" content="2025-01-29" />
 
-<title>Homework Links</title>
+<title>Homework 3 - Regular Expression Puzzles</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -263,34 +265,159 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><u>Homework Links</u></h1>
+<h1 class="title toc-ignore"><u>Homework 3 - Regular Expression
+Puzzles</u></h1>
+<h4 class="author">Grace (Rei) Jia</h4>
+<h4 class="date">2025-01-29</h4>
 
 </div>
 
 
-<p>Thanks George, you rock!</p>
+<p>All questions were completed using text editor, BBEdit</p>
+<p><u>Question 1:</u></p>
+<p>What we have:</p>
+<pre><code>First String    Second      1.22      3.4
+Second          More Text   1.555555  2.2220
+Third           x           3         124</code></pre>
+<p>What we want:</p>
+<pre><code>First String,Second,1.22,3.4
+Second,More Text,1.555555,2.2220
+Third,x,3,124</code></pre>
+<p>How to do it: Find spaces between characteres and replace with
+commas.</p>
+<pre><code>- Find: \s{2,}
+- Replace: ,</code></pre>
+<p><u>Question 2:</u></p>
+<p>What we have:</p>
+<pre><code>Ballif, Bryan, University of Vermont
+Ellison, Aaron, Harvard Forest
+Record, Sydne, Bryn Mawr</code></pre>
+<p>What we want:</p>
+<pre><code>Bryan Ballif (University of Vermont)
+Aaron Ellison (Harvard Forest)
+Sydne Record (Bryn Mawr)</code></pre>
+<p>How to do it: Find the first character/word (1), find a comma, find a
+space, find the second character/word (2), find a space, add parenthesis
+and find everything else (3), and reorder the list.</p>
+<pre><code>- Find: (\w+),\s*(\w+),\s(.*)
+- Replace: \2 \1 (\3)</code></pre>
+<p><u>Question 3:</u></p>
+<p>What we have:</p>
+<pre><code>0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 0003 Winder Slide.mp3 0004 Walking Cane.mp3</code></pre>
+<p>What we want:</p>
+<pre><code>0001 Georgia Horseshoe.mp3
+0002 Billy In The Lowground.mp3
+0003 Winder Slide.mp3
+0004 Walking Cane.mp3</code></pre>
+<p>How to do it: Find first character/word that is in front of “.mp3”
+(1) and add a line break.</p>
+<pre><code>- Find: (.mp3+)\s
+- Replace: 1\n\</code></pre>
+<p><u>Question 4:</u></p>
+<p>What we have:</p>
+<pre><code>0001 Georgia Horseshoe.mp3
+0002 Billy In The Lowground.mp3
+0003 Winder Slide.mp3
+0004 Walking Cane.mp3</code></pre>
+<p>What we want:</p>
+<pre><code>Georgia Horseshoe_0001.mp3
+Billy In The Lowground_0002.mp3
+Winder Slide_0003.mp3
+Walking Cane_0004.mp3</code></pre>
+<p>How to do it: Find the first four numbers, find the space, take
+everything in front of “.mp3”, then add an underscore, and put “.mp3”
+back in its original spot.</p>
+<pre><code>- Find: (\d{4})\s(.*[^.mp3])(.mp3)
+- Replace: \2_\1\.mp3</code></pre>
+<p><u>Question 5:</u></p>
+<p>What we have:</p>
+<pre><code>Camponotus,pennsylvanicus,10.2,44
+Camponotus,herculeanus,10.5,3
+Myrmica,punctiventris,12.2,4
+Lasius,neoniger,3.3,55</code></pre>
+<p>What we want:</p>
+<pre><code>C_pennsylvanicus,44
+C_herculeanus,3
+M_punctiventris,4
+L_neoniger,55</code></pre>
+<p>How to do it: Find the all of the characters, numbers, and commas
+within the string of text and remove them, then take the first letter of
+the first character/word (1), add an underscore, then add the third
+character/word (3) in the string of text.</p>
+<pre><code>- Find: (\w)(\w+),(\w+),(\w*..)
+- Replace: \1_\3</code></pre>
+<p><u>Question 6:</u></p>
+<p>What we have:</p>
+<pre><code>Camponotus,pennsylvanicus,10.2,44
+Camponotus,herculeanus,10.5,3
+Myrmica,punctiventris,12.2,4
+Lasius,neoniger,3.3,55</code></pre>
+<p>What we want:</p>
+<pre><code>C_penn,44
+C_herc,3
+M_punc,4
+L_neon,55</code></pre>
+<p>How to do it: Find the all of the characters, numbers, and commas
+within the string of text and remove them, and replace them by putting
+the first character/word (1) with an underscore, then add the third
+character/word (3) in the string of text.</p>
+<pre><code>- Find: (\w)\w+.(\w{4})\w+,\d+.\d(,\d+)
+- Replace: \1_\2\3</code></pre>
+<p><u>Question 7:</u></p>
+<p>What we have:</p>
+<pre><code>Camponotus,pennsylvanicus,10.2,44
+Camponotus,herculeanus,10.5,3
+Myrmica,punctiventris,12.2,4
+Lasius,neoniger,3.3,55</code></pre>
+<p>What we want:</p>
+<pre><code>Campen, 44, 10.2
+Camher, 3, 10.5
+Myrpun, 4, 12.2
+Lasneo, 55, 3.3</code></pre>
+<p>How to do it: Find the first (1) and second (2) character/word (1)
+(2) along with the commma between them, then find the remaining numbers
+in the string of text, then isolate the first three letters in both the
+first (1) and the second (2) words, and reorder them with the fourth (4)
+character first, add a comma, then the third (3) character.</p>
+<pre><code>- Find: (\w{3})\w+,(\w{3})\w+,(.*),(\d+)
+- Replace: \1\2, \4, \3</code></pre>
+<p><u>Question 8:</u></p>
+<p><u>Problem 1:</u> Look at the pathogen_binary column-what input are
+you expecting to see in this column?</p>
 <ul>
-<li><p>January 22 | Week 2 | <a href="index.html">Adding Index Page to
-Website</a></p></li>
-<li><p>January 29 | Week 3 | <a href="homework3.html">Regular
-Expressions</a></p></li>
-<li><p>February 5 | Week 4 | <a href="homework4.html">Atomic Vectors
-&amp; Basic R</a></p></li>
-<li><p>February 12 | Week 5 | <a href="homework5.html">Matrices, Lists,
-and Data Frames</a></p></li>
-<li><p>February 19 | Week 6 | <a href="homework6.html">Creating Fake
-Data Sets To Explore Hypotheses</a></p></li>
-<li><p>February 26 | Week 7 | <a href="homework7.html">Data
-Manipulations Using the dplyr Package</a></p></li>
-<li><p>March 5 | Week 8 | No Homework / Catch up day</p></li>
-<li><p>March 19 | Week 9 |</p></li>
-<li><p>March 26 | Week 10 |</p></li>
-<li><p>April 2 | Week 11 |</p></li>
-<li><p>April 9 | Week 12 |</p></li>
-<li><p>April 16 | Week 13 |</p></li>
-<li><p>April 23 | Week 14 |</p></li>
-<li><p>April 30 | Week 15 |</p></li>
+<li>I expect to see “0s” in the place of “NAs”, so I replaced them using
+the following method:</li>
 </ul>
+<pre><code>- Find:(.*)(,NA,)
+- Replace:\1,0,</code></pre>
+<p><u>Problem 2:</u> What are the main errors in bombus_spp and
+host_plant?</p>
+<ul>
+<li><p>There are a bunch of additional characters included in both
+bombus_spp and host_plant.</p></li>
+<li><p>First, I wanted to remove additional characters and did that
+using the following (method 1.)</p></li>
+<li><p>However, I noticed that this removed the underscores in the first
+row. I tried to isolate the first row and only remove characters from
+lines 2-21. I spent about 5 hours trying to figure this out with no
+luck, but here is the code I used to isolate the first row from the
+remaining lines (method 2.)</p></li>
+</ul>
+<pre><code> Method, part 1:
+- Find: [^,/.a-zA-Z\d\s:]
+- Replace: (don&#39;t replace anything)
+
+Method, part 2:
+- Find: (?&lt;=\n).*(?=\n) 
+- Replace: (don&#39;t replace anything)
+</code></pre>
+<p><u>Problem 3:</u> Is there anything visibly wrong with bee_caste?</p>
+<ul>
+<li>There are additional “(space),” behind “worker”, so I removed them
+using the following method:</li>
+</ul>
+<pre><code>- Find: ,
+- Replace:,</code></pre>
 
 
 
