@@ -281,42 +281,42 @@ northeast.</p>
 plantpopulation2 &lt;- rnorm(n=10, mean = 29, sd = 20)
 summary(plantpopulation1)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   42.03   53.93   58.38   58.40   61.16   75.38</code></pre>
+##   42.73   45.39   54.59   54.92   63.21   71.76</code></pre>
 <pre class="r"><code>summary(plantpopulation2)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -17.00   11.41   22.39   23.20   42.63   48.36</code></pre>
+##   17.36   25.74   28.68   32.72   35.08   62.78</code></pre>
 <p>Putting it into a data frame:</p>
 <pre class="r"><code>Plant_Populations &lt;- c(plantpopulation1, plantpopulation2)
 Group_Name &lt;- c(rep(&quot;Plant_Population_1&quot;, length(plantpopulation1)),rep(&quot;Plant_Population_2&quot;,length(plantpopulation2)))
 plant_df &lt;- data.frame(Plant_Populations, Group_Name)
 print(plant_df)</code></pre>
 <pre><code>##    Plant_Populations         Group_Name
-## 1          75.382099 Plant_Population_1
-## 2          61.301621 Plant_Population_1
-## 3          67.559977 Plant_Population_1
-## 4          55.914632 Plant_Population_1
-## 5          56.801618 Plant_Population_1
-## 6          60.734744 Plant_Population_1
-## 7          53.271659 Plant_Population_1
-## 8          42.032180 Plant_Population_1
-## 9          51.025192 Plant_Population_1
-## 10         59.960825 Plant_Population_1
-## 11        -17.003907 Plant_Population_2
-## 12         37.141989 Plant_Population_2
-## 13         48.363532 Plant_Population_2
-## 14         10.253705 Plant_Population_2
-## 15         46.989853 Plant_Population_2
-## 16         26.833946 Plant_Population_2
-## 17         44.460685 Plant_Population_2
-## 18         17.937824 Plant_Population_2
-## 19         14.873522 Plant_Population_2
-## 20          2.122048 Plant_Population_2</code></pre>
+## 1           47.25340 Plant_Population_1
+## 2           64.85456 Plant_Population_1
+## 3           44.76664 Plant_Population_1
+## 4           64.29582 Plant_Population_1
+## 5           57.78755 Plant_Population_1
+## 6           59.94322 Plant_Population_1
+## 7           44.38812 Plant_Population_1
+## 8           51.39410 Plant_Population_1
+## 9           71.75648 Plant_Population_1
+## 10          42.73088 Plant_Population_1
+## 11          31.23931 Plant_Population_2
+## 12          62.77712 Plant_Population_2
+## 13          25.32728 Plant_Population_2
+## 14          36.35858 Plant_Population_2
+## 15          51.81686 Plant_Population_2
+## 16          28.57665 Plant_Population_2
+## 17          17.36211 Plant_Population_2
+## 18          26.98898 Plant_Population_2
+## 19          28.77474 Plant_Population_2
+## 20          17.95999 Plant_Population_2</code></pre>
 <p>Analyzing the data by obtaining the mean and standard deviations from
 both plantpopulation1 and plantpopulation2.</p>
 <pre class="r"><code>mean(plant_df$Plant_Populations)</code></pre>
-<pre><code>## [1] 40.79789</code></pre>
+<pre><code>## [1] 43.81762</code></pre>
 <pre class="r"><code>sd(plant_df$Plant_Populations)</code></pre>
-<pre><code>## [1] 24.19825</code></pre>
+<pre><code>## [1] 16.63665</code></pre>
 <p>Plotting the data</p>
 <pre class="r"><code>boxplot(Plant_Populations~Group_Name,data=plant_df, main=&quot;Alpine Plant Population Density&quot;,
         xlab=&quot;Plant Groups&quot;, ylab=&quot;Population Size&quot;)</code></pre>
@@ -336,16 +336,16 @@ for (i in n_iterations) {
   cat(&quot;Iteration=&quot;,i,&quot;P-value=&quot;)
 print(test_result$p.value)
 }</code></pre>
-<pre><code>## Iteration= 1 P-value=[1] 0.0004555947
-## Iteration= 2 P-value=[1] 0.0004555947
-## Iteration= 3 P-value=[1] 0.0004555947
-## Iteration= 4 P-value=[1] 0.0004555947
-## Iteration= 5 P-value=[1] 0.0004555947
-## Iteration= 6 P-value=[1] 0.0004555947
-## Iteration= 7 P-value=[1] 0.0004555947
-## Iteration= 8 P-value=[1] 0.0004555947
-## Iteration= 9 P-value=[1] 0.0004555947
-## Iteration= 10 P-value=[1] 0.0004555947</code></pre>
+<pre><code>## Iteration= 1 P-value=[1] 0.001040613
+## Iteration= 2 P-value=[1] 0.001040613
+## Iteration= 3 P-value=[1] 0.001040613
+## Iteration= 4 P-value=[1] 0.001040613
+## Iteration= 5 P-value=[1] 0.001040613
+## Iteration= 6 P-value=[1] 0.001040613
+## Iteration= 7 P-value=[1] 0.001040613
+## Iteration= 8 P-value=[1] 0.001040613
+## Iteration= 9 P-value=[1] 0.001040613
+## Iteration= 10 P-value=[1] 0.001040613</code></pre>
 <ul>
 <li>Not sure why, but all of my values are the same</li>
 </ul>
