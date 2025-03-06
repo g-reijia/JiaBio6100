@@ -273,7 +273,6 @@ Explore Hypotheses</u></h1>
 </div>
 
 
-<p>library(tidyverse) library(ggplot2)</p>
 <p>My dataset was made at random for this homework assignment, very
 loosely based on biodiversity of alpine plant populations in the
 northeast.</p>
@@ -282,42 +281,42 @@ northeast.</p>
 plantpopulation2 &lt;- rnorm(n=10, mean = 29, sd = 20)
 summary(plantpopulation1)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   18.13   53.80   57.73   55.80   63.38   71.96</code></pre>
+##   42.03   53.93   58.38   58.40   61.16   75.38</code></pre>
 <pre class="r"><code>summary(plantpopulation2)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    7.21   26.28   37.15   36.27   44.10   66.33</code></pre>
+##  -17.00   11.41   22.39   23.20   42.63   48.36</code></pre>
 <p>Putting it into a data frame:</p>
 <pre class="r"><code>Plant_Populations &lt;- c(plantpopulation1, plantpopulation2)
 Group_Name &lt;- c(rep(&quot;Plant_Population_1&quot;, length(plantpopulation1)),rep(&quot;Plant_Population_2&quot;,length(plantpopulation2)))
 plant_df &lt;- data.frame(Plant_Populations, Group_Name)
 print(plant_df)</code></pre>
 <pre><code>##    Plant_Populations         Group_Name
-## 1          51.411414 Plant_Population_1
-## 2          58.882006 Plant_Population_1
-## 3          68.209572 Plant_Population_1
-## 4          53.693989 Plant_Population_1
-## 5          64.244991 Plant_Population_1
-## 6          71.963573 Plant_Population_1
-## 7          54.135918 Plant_Population_1
-## 8          56.572408 Plant_Population_1
-## 9          60.782438 Plant_Population_1
-## 10         18.130717 Plant_Population_1
-## 11         49.692165 Plant_Population_2
-## 12         24.672077 Plant_Population_2
-## 13         22.863061 Plant_Population_2
-## 14         33.629140 Plant_Population_2
-## 15         41.597536 Plant_Population_2
-## 16         44.939617 Plant_Population_2
-## 17         31.112436 Plant_Population_2
-## 18         40.674668 Plant_Population_2
-## 19         66.329357 Plant_Population_2
-## 20          7.209777 Plant_Population_2</code></pre>
+## 1          75.382099 Plant_Population_1
+## 2          61.301621 Plant_Population_1
+## 3          67.559977 Plant_Population_1
+## 4          55.914632 Plant_Population_1
+## 5          56.801618 Plant_Population_1
+## 6          60.734744 Plant_Population_1
+## 7          53.271659 Plant_Population_1
+## 8          42.032180 Plant_Population_1
+## 9          51.025192 Plant_Population_1
+## 10         59.960825 Plant_Population_1
+## 11        -17.003907 Plant_Population_2
+## 12         37.141989 Plant_Population_2
+## 13         48.363532 Plant_Population_2
+## 14         10.253705 Plant_Population_2
+## 15         46.989853 Plant_Population_2
+## 16         26.833946 Plant_Population_2
+## 17         44.460685 Plant_Population_2
+## 18         17.937824 Plant_Population_2
+## 19         14.873522 Plant_Population_2
+## 20          2.122048 Plant_Population_2</code></pre>
 <p>Analyzing the data by obtaining the mean and standard deviations from
 both plantpopulation1 and plantpopulation2.</p>
 <pre class="r"><code>mean(plant_df$Plant_Populations)</code></pre>
-<pre><code>## [1] 46.03734</code></pre>
+<pre><code>## [1] 40.79789</code></pre>
 <pre class="r"><code>sd(plant_df$Plant_Populations)</code></pre>
-<pre><code>## [1] 18.1705</code></pre>
+<pre><code>## [1] 24.19825</code></pre>
 <p>Plotting the data</p>
 <pre class="r"><code>boxplot(Plant_Populations~Group_Name,data=plant_df, main=&quot;Alpine Plant Population Density&quot;,
         xlab=&quot;Plant Groups&quot;, ylab=&quot;Population Size&quot;)</code></pre>
@@ -337,16 +336,16 @@ for (i in n_iterations) {
   cat(&quot;Iteration=&quot;,i,&quot;P-value=&quot;)
 print(test_result$p.value)
 }</code></pre>
-<pre><code>## Iteration= 1 P-value=[1] 0.01180908
-## Iteration= 2 P-value=[1] 0.01180908
-## Iteration= 3 P-value=[1] 0.01180908
-## Iteration= 4 P-value=[1] 0.01180908
-## Iteration= 5 P-value=[1] 0.01180908
-## Iteration= 6 P-value=[1] 0.01180908
-## Iteration= 7 P-value=[1] 0.01180908
-## Iteration= 8 P-value=[1] 0.01180908
-## Iteration= 9 P-value=[1] 0.01180908
-## Iteration= 10 P-value=[1] 0.01180908</code></pre>
+<pre><code>## Iteration= 1 P-value=[1] 0.0004555947
+## Iteration= 2 P-value=[1] 0.0004555947
+## Iteration= 3 P-value=[1] 0.0004555947
+## Iteration= 4 P-value=[1] 0.0004555947
+## Iteration= 5 P-value=[1] 0.0004555947
+## Iteration= 6 P-value=[1] 0.0004555947
+## Iteration= 7 P-value=[1] 0.0004555947
+## Iteration= 8 P-value=[1] 0.0004555947
+## Iteration= 9 P-value=[1] 0.0004555947
+## Iteration= 10 P-value=[1] 0.0004555947</code></pre>
 <ul>
 <li>Not sure why, but all of my values are the same</li>
 </ul>
