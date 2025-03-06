@@ -15,8 +15,8 @@ My dataset was made at random for this homework assignment, very loosely based o
 
 Making data and a quick summary of each plant population:
 ```{r}
-plantpopulation1 <- rnorm(n=10, mean = 57, sd = 13)
-plantpopulation2 <- rnorm(n=10, mean = 29, sd = 20)
+plantpopulation1 <- rnorm(n=10, mean = 15, sd = 2)
+plantpopulation2 <- rnorm(n=10, mean = 15, sd = 2)
 summary(plantpopulation1)
 summary(plantpopulation2)
 ```
@@ -52,14 +52,13 @@ hist(plant_df$Plant_Populations,
 n_iterations <- 1:10
 
 for (i in n_iterations) {
-  plantpopulation1 <- rnorm(n=i, mean = 57, sd = 13)
-  plantpopulation2 <- rnorm(n=i, mean = 29, sd = 20)
+  plantpopulation1 <- rnorm(n=i, mean = 15, sd = 2)
+  plantpopulation2 <- rnorm(n=i, mean = 15, sd = 2)
   Plant_Populations <- c(plantpopulation1, plantpopulation2)
   Group_Name <- c(rep("Plant_Population_1", length(plantpopulation1)),rep("Plant_Population_2",length(plantpopulation2)))
-  test_result <- t.test(Plant_Populations~Group_Name, data = plant_df)
+  test_result <- t.test(Plant_Populations)
   cat("Iteration=",i,"P-value=")
 print(test_result$p.value)
 }
 ```
-- Not sure why, but all of my values are the same
 
