@@ -14,27 +14,55 @@ library(ggplot2)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Data is subsetted from 1987-2018 cyanobacteria and water quality data for 20 reservoirs by Smucker et al. (2021) focusing on Buckhorn Lake Reservoir.
+My dataset was made at random for this homework assignment, very loosely based on biodiversity of alpine plant populations in the northeast. 
 
-
-Reading in data and cleaning it up
+Making data and a quick summary of each plant population:
 ```{r}
-buckhornlake_df <- read.csv("buckhornlake.csv", sep=",")
-str(buckhornlake_df)
+plantpopulation1 <- rnorm(n=10, mean = 57, sd = 13)
+plantpopulation2 <- rnorm(n=10, mean = 29, sd = 20)
+summary(plantpopulation1)
+summary(plantpopulation2)
 ```
+
+Putting it into a data frame:
 ```{r}
-buckhornlake_df<- na.omit(buckhornlake_df)
-summary(buckhornlake_df$temperature)
+Plant_Populations <- c(plantpopulation1, plantpopulation2)
+Group_Name <- c(rep("Plant_Population_1", length(plantpopulation1)),rep("Plant_Population_2",length(plantpopulation2)))
+plant_df <- data.frame(Plant_Populations, Group_Name)
+print(plant_df)
+```
+
+Analyzing the data by obtaining the mean and standard deviations from both plantpopulation1 and plantpopulation2.
+```{r}
+mean(plant_df$Plant_Populations)
+sd(plant_df$Plant_Populations)
+
 ```
 
 Plotting the data
 ```{r}
-buckhornlake_model <- lm(year ~ temperature, data = buckhornlake_df)
-summary(buckhornlake_model)
-plot(buckhornlake_model$residuals)
-plot1 <- ggplot(buckhorn_model, aes(x = temperature)) + 
-          geom_histogram(binwidth = 2, fill = "blue", color = "black", alpha = 0.7) +
-          theme_minimal() +
-          labs(title = "Temperature on Buckhorn Lake Reservoir", x = "Temperature", y = "Frequency")
-print(plot1)
+boxplot(Plant_Populations~Group_Name,data=plant_df, main="Alpine Plant Population Density",
+        xlab="Plant Groups", ylab="Population Size")
 ```
+
+```{r}
+hist(plant_df$Plant_Populations, 
+     main = paste("Histogram of Plant Populations 1 and 2"),
+     xlab = "Population Density", ylab = "Frequency")
+```
+
+```{r}
+n_iterations <- 1:10
+
+for (i in n_iterations) {
+  plantpopulation1 <- rnorm(n=i, mean = 57, sd = 13)
+  plantpopulation2 <- rnorm(n=i, mean = 29, sd = 20)
+  Plant_Populations <- c(plantpopulation1, plantpopulation2)
+  Group_Name <- c(rep("Plant_Population_1", length(plantpopulation1)),rep("Plant_Population_2",length(plantpopulation2)))
+  test_result <- t.test(Plant_Populations~Group_Name, data = plant_df)
+  cat("Iteration=",i,"P-value=")
+print(test_result$p.value)
+}
+```
+- Not sure why, but all of my values are the same
+
