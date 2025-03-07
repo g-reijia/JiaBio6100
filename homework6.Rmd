@@ -15,8 +15,8 @@ My dataset was made at random for this homework assignment, very loosely based o
 
 Making data and a quick summary of each plant population:
 ```{r}
-plantpopulation1 <- rnorm(n=10, mean = 15, sd = 2)
-plantpopulation2 <- rnorm(n=10, mean = 15, sd = 2)
+plantpopulation1 <- rnorm(n=10, mean = 150, sd = 20)
+plantpopulation2 <- rnorm(n=10, mean = 200, sd = 50)
 summary(plantpopulation1)
 summary(plantpopulation2)
 ```
@@ -27,13 +27,6 @@ Plant_Populations <- c(plantpopulation1, plantpopulation2)
 Group_Name <- c(rep("Plant_Population_1", length(plantpopulation1)),rep("Plant_Population_2",length(plantpopulation2)))
 plant_df <- data.frame(Plant_Populations, Group_Name)
 print(plant_df)
-```
-
-Analyzing the data by obtaining the mean and standard deviations from both plantpopulation1 and plantpopulation2.
-```{r}
-mean(plant_df$Plant_Populations)
-sd(plant_df$Plant_Populations)
-
 ```
 
 Plotting the data
@@ -47,18 +40,68 @@ hist(plant_df$Plant_Populations,
      main = paste("Histogram of Plant Populations 1 and 2"),
      xlab = "Population Density", ylab = "Frequency")
 ```
+Using the same parameters as in the previous step, I am now usign a for loop to simulate 20 different iterations of this combined plant populations. My original sample size was 10.
 
 ```{r}
-n_iterations <- 1:10
+n_iterations <- 1:20
 
-for (i in n_iterations) {
-  plantpopulation1 <- rnorm(n=i, mean = 15, sd = 2)
-  plantpopulation2 <- rnorm(n=i, mean = 15, sd = 2)
+for (i in n_iterations){
+  plantpopulation1 <- rnorm(n=10, mean = 150, sd = 20)
+  plantpopulation2 <- rnorm(n=10, mean = 200, sd = 50)
   Plant_Populations <- c(plantpopulation1, plantpopulation2)
   Group_Name <- c(rep("Plant_Population_1", length(plantpopulation1)),rep("Plant_Population_2",length(plantpopulation2)))
-  test_result <- t.test(Plant_Populations)
+  plant_df <- data.frame(Plant_Populations, Group_Name)
+  test_result <- t.test(Plant_Populations~Group_Name, data = plant_df)
+  n_iterations[i] <- test_result$p.value
+  cat("Iteration=",i,"P-value=")
+print(test_result$p.value)
+}
+```
+From the 20 iterations above, I determined that several have a p-value of < 0.05 (which changes every time I run the for loop).
+```{r}
+which(n_iterations < 0.05)
+```
+
+Here I am running the same for loop but I changed the sample size to 5.
+
+```{r}
+n_iterations <- 1:20
+
+for (i in n_iterations){
+  plantpopulation1 <- rnorm(n=5, mean = 150, sd = 20)
+  plantpopulation2 <- rnorm(n=5, mean = 200, sd = 50)
+  Plant_Populations <- c(plantpopulation1, plantpopulation2)
+  Group_Name <- c(rep("Plant_Population_1", length(plantpopulation1)),rep("Plant_Population_2",length(plantpopulation2)))
+  plant_df <- data.frame(Plant_Populations, Group_Name)
+  test_result <- t.test(Plant_Populations~Group_Name, data = plant_df)
+  n_iterations[i] <- test_result$p.value
   cat("Iteration=",i,"P-value=")
 print(test_result$p.value)
 }
 ```
 
+Again, from the 20 iterations above with a sample size of 5, I determined that several have a p-value of < 0.05 (which changes every time I run the for loop).
+```{r}
+which(n_iterations < 0.05)
+```
+
+Continuing to use this for loop, I have determined that the smallest sample size that is still statistically significant is 2, which is rather shocking. Evidence below!
+
+```{r}
+n_iterations <- 1:20
+
+for (i in n_iterations){
+  plantpopulation1 <- rnorm(n=2, mean = 150, sd = 20)
+  plantpopulation2 <- rnorm(n=2, mean = 200, sd = 50)
+  Plant_Populations <- c(plantpopulation1, plantpopulation2)
+  Group_Name <- c(rep("Plant_Population_1", length(plantpopulation1)),rep("Plant_Population_2",length(plantpopulation2)))
+  plant_df <- data.frame(Plant_Populations, Group_Name)
+  test_result <- t.test(Plant_Populations~Group_Name, data = plant_df)
+  n_iterations[i] <- test_result$p.value
+  cat("Iteration=",i,"P-value=")
+print(test_result$p.value)
+}
+```
+```{r}
+which(n_iterations < 0.05)
+```
