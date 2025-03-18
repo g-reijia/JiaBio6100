@@ -41,9 +41,7 @@ hist(plant_df$Plant_Populations,
      xlab = "Population Density", ylab = "Frequency")
 ```
 
-
-
-Using the same parameters as in the previous step, I am now usign a for loop to simulate 20 different iterations of this combined plant populations. My original sample size was 10.
+Using the same parameters as in the previous step, I am now using a for loop to simulate 20 different iterations of this combined plant populations. My original sample size was 10.
 
 ```{r}
 n_iterations <- 1:20
