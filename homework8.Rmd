@@ -1,0 +1,22 @@
+---
+title: "<u>Homework 8 – Simulating and Fitting Data Distributions</u>"
+author: "Grace (Rei) Jia"
+date: "2025-02-26"
+output: 
+  html_document:
+    theme: journal
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Importing necessary libraries:
+```{r}
+library(ggplot2)
+library(MASS)
+```
+
+```{r}
+
+```
