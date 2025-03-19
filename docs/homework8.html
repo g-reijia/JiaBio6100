@@ -280,11 +280,6 @@ State of New York. For context, HABs/habs = Harmful Algal Blooms</p>
 <p>Importing necessary libraries:</p>
 <pre class="r"><code>library(ggplot2)
 library(MASS)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;MASS&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     select</code></pre>
 <p>Importing dataset:</p>
 <pre class="r"><code>habs &lt;- read.table(&quot;HABs_2012-2018.csv&quot;, header=TRUE,sep=&quot;,&quot;)</code></pre>
 <p>Cleaning up data and assigning variable of interest:</p>
@@ -303,12 +298,14 @@ List:</p>
 <pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ## ℹ Please use `linewidth` instead.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <pre class="r"><code>print(p1)</code></pre>
 <pre><code>## Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
 ## ℹ Please use `after_stat(density)` instead.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="homework8_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Adding empirical density curve:</p>
@@ -355,8 +352,8 @@ rateML &lt;- expoPars$estimate[&quot;rate&quot;]
 stat2 &lt;- stat_function(aes(x = xval, y = ..y..), fun = dexp, colour=&quot;blue&quot;, n = length(habs$myVar), args = list(rate=rateML))
  p1 + stat + stat2</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="homework8_files/figure-html/unnamed-chunk-9-1.png" width="672" />
-Plotting uniform probability density on the histogram:</p>
+<p><img src="homework8_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Plotting uniform probability density on the histogram:</p>
 <pre class="r"><code>stat3 &lt;- stat_function(aes(x = xval, y = ..y..), fun = dunif, colour=&quot;darkgreen&quot;, n = length(habs$myVar), args = list(min=min(habs$myVar), max=max(habs$myVar)))
  p1 + stat + stat2 + stat3</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
@@ -388,8 +385,8 @@ shape2ML &lt;- betaPars$estimate[&quot;shape2&quot;]
 statSpecial &lt;- stat_function(aes(x = xval, y = ..y..), fun = dbeta, colour=&quot;orchid&quot;, n = length(habs$myVar), args = list(shape1=shape1ML,shape2=shape2ML))
 pSpecial + statSpecial</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale
-## range (`geom_bar()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_bar()`).</code></pre>
 <p><img src="homework8_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p><u>Simulated New Dataset</u></p>
 <p>Creating a simulated dataset based on gamma probability density. Here
@@ -400,10 +397,10 @@ simulated_z &lt;- 1:length(habs$myVar)
 simulated_df &lt;- data.frame(simulated_dataset,simulated_z)</code></pre>
 <p>Summary of simulated dataset:</p>
 <pre class="r"><code>str(simulated_dataset)</code></pre>
-<pre><code>##  num [1:737] 24 5.48 8.32 6.26 7.95 ...</code></pre>
+<pre><code>##  num [1:737] 7.36 2.28 8.34 10.6 31.45 ...</code></pre>
 <pre class="r"><code>summary(simulated_dataset)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.1538  4.7576  8.6109 10.0549 13.4146 44.5347</code></pre>
+##  0.1551  4.9897  8.7548 10.5851 13.9023 51.6479</code></pre>
 <p>Plotting the histogram based on gamma probability density, which
 appears to best fit the data compared to normal, exponential, uniform,
 and beta probability.</p>

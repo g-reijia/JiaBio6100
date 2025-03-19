@@ -75,6 +75,9 @@ rateML <- expoPars$estimate["rate"]
 stat2 <- stat_function(aes(x = xval, y = ..y..), fun = dexp, colour="blue", n = length(habs$myVar), args = list(rate=rateML))
  p1 + stat + stat2
 ```
+
+
+
 Plotting uniform probability density on the histogram:
 ```{r}
 stat3 <- stat_function(aes(x = xval, y = ..y..), fun = dunif, colour="darkgreen", n = length(habs$myVar), args = list(min=min(habs$myVar), max=max(habs$myVar)))
