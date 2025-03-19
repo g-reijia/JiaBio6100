@@ -281,36 +281,36 @@ northeast.</p>
 plantpopulation2 &lt;- rnorm(n=10, mean = 200, sd = 50)
 summary(plantpopulation1)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   121.9   133.3   148.4   150.8   161.7   196.9</code></pre>
+##   125.1   131.6   147.3   146.6   153.0   185.6</code></pre>
 <pre class="r"><code>summary(plantpopulation2)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    83.5   157.7   180.7   178.5   196.7   251.6</code></pre>
+##   140.5   177.7   204.6   204.0   230.8   258.5</code></pre>
 <p>Putting it into a data frame:</p>
 <pre class="r"><code>Plant_Populations &lt;- c(plantpopulation1, plantpopulation2)
 Group_Name &lt;- c(rep(&quot;Plant_Population_1&quot;, length(plantpopulation1)),rep(&quot;Plant_Population_2&quot;,length(plantpopulation2)))
 plant_df &lt;- data.frame(Plant_Populations, Group_Name)
 print(plant_df)</code></pre>
 <pre><code>##    Plant_Populations         Group_Name
-## 1          162.20491 Plant_Population_1
-## 2          196.89579 Plant_Population_1
-## 3          136.47801 Plant_Population_1
-## 4          144.00532 Plant_Population_1
-## 5          128.06269 Plant_Population_1
-## 6          160.30816 Plant_Population_1
-## 7          132.30665 Plant_Population_1
-## 8          152.87754 Plant_Population_1
-## 9          172.82323 Plant_Population_1
-## 10         121.92363 Plant_Population_1
-## 11         137.73045 Plant_Population_2
-## 12          83.49855 Plant_Population_2
-## 13         234.47755 Plant_Population_2
-## 14         193.96916 Plant_Population_2
-## 15         197.63212 Plant_Population_2
-## 16         171.63298 Plant_Population_2
-## 17         152.99609 Plant_Population_2
-## 18         172.06687 Plant_Population_2
-## 19         189.25222 Plant_Population_2
-## 20         251.63294 Plant_Population_2</code></pre>
+## 1           154.5062 Plant_Population_1
+## 2           136.7437 Plant_Population_1
+## 3           148.3893 Plant_Population_1
+## 4           129.8571 Plant_Population_1
+## 5           162.6501 Plant_Population_1
+## 6           147.8798 Plant_Population_1
+## 7           128.1796 Plant_Population_1
+## 8           146.7262 Plant_Population_1
+## 9           185.6110 Plant_Population_1
+## 10          125.0626 Plant_Population_1
+## 11          258.5060 Plant_Population_2
+## 12          172.9106 Plant_Population_2
+## 13          253.7039 Plant_Population_2
+## 14          234.2984 Plant_Population_2
+## 15          220.4212 Plant_Population_2
+## 16          140.5065 Plant_Population_2
+## 17          158.3432 Plant_Population_2
+## 18          192.1492 Plant_Population_2
+## 19          197.7984 Plant_Population_2
+## 20          211.4034 Plant_Population_2</code></pre>
 <p>Plotting the data</p>
 <pre class="r"><code>boxplot(Plant_Populations~Group_Name,data=plant_df, main=&quot;Alpine Plant Population Density&quot;,
         xlab=&quot;Plant Groups&quot;, ylab=&quot;Population Size&quot;)</code></pre>
@@ -335,30 +335,30 @@ for (i in n_iterations){
   cat(&quot;Iteration=&quot;,i,&quot;P-value=&quot;)
 print(test_result$p.value)
 }</code></pre>
-<pre><code>## Iteration= 1 P-value=[1] 0.0007408552
-## Iteration= 2 P-value=[1] 0.002274918
-## Iteration= 3 P-value=[1] 1.761828e-05
-## Iteration= 4 P-value=[1] 0.0001535868
-## Iteration= 5 P-value=[1] 0.0003577891
-## Iteration= 6 P-value=[1] 0.001524715
-## Iteration= 7 P-value=[1] 0.05227339
-## Iteration= 8 P-value=[1] 0.006304464
-## Iteration= 9 P-value=[1] 0.08697945
-## Iteration= 10 P-value=[1] 0.0008168012
-## Iteration= 11 P-value=[1] 0.002924894
-## Iteration= 12 P-value=[1] 0.01099223
-## Iteration= 13 P-value=[1] 0.7085973
-## Iteration= 14 P-value=[1] 0.002217485
-## Iteration= 15 P-value=[1] 0.004612427
-## Iteration= 16 P-value=[1] 0.04359943
-## Iteration= 17 P-value=[1] 0.286795
-## Iteration= 18 P-value=[1] 0.006203119
-## Iteration= 19 P-value=[1] 0.001755018
-## Iteration= 20 P-value=[1] 0.02440008</code></pre>
+<pre><code>## Iteration= 1 P-value=[1] 0.003329777
+## Iteration= 2 P-value=[1] 0.0002077475
+## Iteration= 3 P-value=[1] 0.09276959
+## Iteration= 4 P-value=[1] 2.761387e-06
+## Iteration= 5 P-value=[1] 0.1305272
+## Iteration= 6 P-value=[1] 0.002087184
+## Iteration= 7 P-value=[1] 0.002553554
+## Iteration= 8 P-value=[1] 0.06780442
+## Iteration= 9 P-value=[1] 0.002482135
+## Iteration= 10 P-value=[1] 0.0317514
+## Iteration= 11 P-value=[1] 7.305451e-05
+## Iteration= 12 P-value=[1] 0.0002247245
+## Iteration= 13 P-value=[1] 0.1207991
+## Iteration= 14 P-value=[1] 0.09210817
+## Iteration= 15 P-value=[1] 0.002382498
+## Iteration= 16 P-value=[1] 0.1543325
+## Iteration= 17 P-value=[1] 0.01418159
+## Iteration= 18 P-value=[1] 0.002718225
+## Iteration= 19 P-value=[1] 0.002220396
+## Iteration= 20 P-value=[1] 0.02599631</code></pre>
 <p>From the 20 iterations above, I determined that several have a
 p-value of &lt; 0.05 (which changes every time I run the for loop).</p>
 <pre class="r"><code>which(n_iterations &lt; 0.05)</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  8 10 11 12 14 15 16 18 19 20</code></pre>
+<pre><code>##  [1]  1  2  4  6  7  9 10 11 12 15 17 18 19 20</code></pre>
 <p>Here I am running the same for loop but I changed the sample size to
 5.</p>
 <pre class="r"><code>n_iterations &lt;- 1:20
@@ -374,31 +374,31 @@ for (i in n_iterations){
   cat(&quot;Iteration=&quot;,i,&quot;P-value=&quot;)
 print(test_result$p.value)
 }</code></pre>
-<pre><code>## Iteration= 1 P-value=[1] 0.06222909
-## Iteration= 2 P-value=[1] 0.1794372
-## Iteration= 3 P-value=[1] 0.06167117
-## Iteration= 4 P-value=[1] 0.9736666
-## Iteration= 5 P-value=[1] 0.05553428
-## Iteration= 6 P-value=[1] 0.002096245
-## Iteration= 7 P-value=[1] 0.8676801
-## Iteration= 8 P-value=[1] 0.000146187
-## Iteration= 9 P-value=[1] 0.00111676
-## Iteration= 10 P-value=[1] 0.02799237
-## Iteration= 11 P-value=[1] 0.3940708
-## Iteration= 12 P-value=[1] 0.03620325
-## Iteration= 13 P-value=[1] 0.2490866
-## Iteration= 14 P-value=[1] 0.03405437
-## Iteration= 15 P-value=[1] 0.09307963
-## Iteration= 16 P-value=[1] 0.1169961
-## Iteration= 17 P-value=[1] 0.03163492
-## Iteration= 18 P-value=[1] 0.2970317
-## Iteration= 19 P-value=[1] 0.1388494
-## Iteration= 20 P-value=[1] 0.1311756</code></pre>
+<pre><code>## Iteration= 1 P-value=[1] 0.04154825
+## Iteration= 2 P-value=[1] 0.5055441
+## Iteration= 3 P-value=[1] 0.1525397
+## Iteration= 4 P-value=[1] 0.07495975
+## Iteration= 5 P-value=[1] 0.006776063
+## Iteration= 6 P-value=[1] 0.01015967
+## Iteration= 7 P-value=[1] 0.08933383
+## Iteration= 8 P-value=[1] 0.01844489
+## Iteration= 9 P-value=[1] 0.3579436
+## Iteration= 10 P-value=[1] 0.02243524
+## Iteration= 11 P-value=[1] 0.1990759
+## Iteration= 12 P-value=[1] 0.948767
+## Iteration= 13 P-value=[1] 0.002205066
+## Iteration= 14 P-value=[1] 0.02507203
+## Iteration= 15 P-value=[1] 0.001498652
+## Iteration= 16 P-value=[1] 0.4741008
+## Iteration= 17 P-value=[1] 0.07927037
+## Iteration= 18 P-value=[1] 0.0007606624
+## Iteration= 19 P-value=[1] 0.7839667
+## Iteration= 20 P-value=[1] 0.112967</code></pre>
 <p>Again, from the 20 iterations above with a sample size of 5, I
 determined that several have a p-value of &lt; 0.05 (which changes every
 time I run the for loop).</p>
 <pre class="r"><code>which(n_iterations &lt; 0.05)</code></pre>
-<pre><code>## [1]  6  8  9 10 12 14 17</code></pre>
+<pre><code>## [1]  1  5  6  8 10 13 14 15 18</code></pre>
 <p>Continuing to use this for loop, I have determined that the smallest
 sample size that is still statistically significant is 2, which is
 rather shocking. Evidence below!</p>
@@ -415,28 +415,28 @@ for (i in n_iterations){
   cat(&quot;Iteration=&quot;,i,&quot;P-value=&quot;)
 print(test_result$p.value)
 }</code></pre>
-<pre><code>## Iteration= 1 P-value=[1] 0.7876548
-## Iteration= 2 P-value=[1] 0.1417945
-## Iteration= 3 P-value=[1] 0.2875711
-## Iteration= 4 P-value=[1] 0.7779378
-## Iteration= 5 P-value=[1] 0.9269027
-## Iteration= 6 P-value=[1] 0.01898112
-## Iteration= 7 P-value=[1] 0.5460946
-## Iteration= 8 P-value=[1] 0.05217175
-## Iteration= 9 P-value=[1] 0.2613523
-## Iteration= 10 P-value=[1] 0.3689765
-## Iteration= 11 P-value=[1] 0.4153816
-## Iteration= 12 P-value=[1] 0.2906865
-## Iteration= 13 P-value=[1] 0.3177338
-## Iteration= 14 P-value=[1] 0.2063511
-## Iteration= 15 P-value=[1] 0.9185823
-## Iteration= 16 P-value=[1] 0.07121334
-## Iteration= 17 P-value=[1] 0.8889229
-## Iteration= 18 P-value=[1] 0.01667232
-## Iteration= 19 P-value=[1] 0.6806021
-## Iteration= 20 P-value=[1] 0.1100451</code></pre>
+<pre><code>## Iteration= 1 P-value=[1] 0.7651721
+## Iteration= 2 P-value=[1] 0.2393943
+## Iteration= 3 P-value=[1] 0.2930887
+## Iteration= 4 P-value=[1] 0.1528854
+## Iteration= 5 P-value=[1] 0.5825468
+## Iteration= 6 P-value=[1] 0.3919282
+## Iteration= 7 P-value=[1] 0.3915991
+## Iteration= 8 P-value=[1] 0.05646483
+## Iteration= 9 P-value=[1] 0.2528818
+## Iteration= 10 P-value=[1] 0.1927852
+## Iteration= 11 P-value=[1] 0.06037943
+## Iteration= 12 P-value=[1] 0.5091176
+## Iteration= 13 P-value=[1] 0.2895035
+## Iteration= 14 P-value=[1] 0.6278051
+## Iteration= 15 P-value=[1] 0.0644476
+## Iteration= 16 P-value=[1] 0.5718764
+## Iteration= 17 P-value=[1] 0.3511109
+## Iteration= 18 P-value=[1] 0.2930041
+## Iteration= 19 P-value=[1] 0.467696
+## Iteration= 20 P-value=[1] 0.3737324</code></pre>
 <pre class="r"><code>which(n_iterations &lt; 0.05)</code></pre>
-<pre><code>## [1]  6 18</code></pre>
+<pre><code>## integer(0)</code></pre>
 
 
 

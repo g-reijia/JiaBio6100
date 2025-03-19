@@ -6,6 +6,9 @@ output:
   html_document:
     theme: journal
 ---
+<break></break>
+
+Data for this homework was obtained from www.data.gov and is titled "Harmful Algal Bloom Statewide Occurrence Summary: 2012-2018" from the State of New York. For context, HABs/habs = Harmful Algal Blooms
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -16,7 +19,114 @@ Importing necessary libraries:
 library(ggplot2)
 library(MASS)
 ```
-
+Importing dataset:
 ```{r}
+habs <- read.table("HABs_2012-2018.csv", header=TRUE,sep=",")
+```
 
+Cleaning up data and assigning variable of interest:
+```{r}
+habs <- na.omit(habs)
+habs$myVar <- habs$Number.of.Weeks.on.DEC.Notification.List
+```
+
+Summarizing dataset:
+```{r}
+str(habs$myVar)
+summary(habs$myVar)
+```
+
+Histogram of Number of Weeks HABs were listed on NYSDEC Notification List:
+```{r}
+p1 <- ggplot(data=habs, aes(x=myVar, y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) 
+print(p1)
+```
+
+Adding empirical density curve:
+```{r}
+p1 <-  p1 +  geom_density(linetype="dotted",size=0.75)
+print(p1)
+```
+
+Maximum likelihood parameters for normal distribution
+```{r}
+normPars <- fitdistr(habs$myVar,"normal")
+print(normPars)
+str(normPars)
+normPars$estimate["mean"]
+```
+Plotting normal probability density on the histogram:
+```{r}
+meanML <- normPars$estimate["mean"]
+sdML <- normPars$estimate["sd"]
+
+xval <- seq(0,max(habs$myVar),len=length(habs$myVar))
+
+ stat <- stat_function(aes(x = xval, y = ..y..), fun = dnorm, colour="red", n = length(habs$myVar), args = list(mean = meanML, sd = sdML))
+ p1 + stat
+```
+
+Plotting exponential probability density on the histogram:
+```{r}
+expoPars <- fitdistr(habs$myVar,"exponential")
+rateML <- expoPars$estimate["rate"]
+
+stat2 <- stat_function(aes(x = xval, y = ..y..), fun = dexp, colour="blue", n = length(habs$myVar), args = list(rate=rateML))
+ p1 + stat + stat2
+```
+Plotting uniform probability density on the histogram:
+```{r}
+stat3 <- stat_function(aes(x = xval, y = ..y..), fun = dunif, colour="darkgreen", n = length(habs$myVar), args = list(min=min(habs$myVar), max=max(habs$myVar)))
+ p1 + stat + stat2 + stat3
+```
+
+Plotting gamma probability density on the histogram:
+```{r}
+gammaPars <- fitdistr(habs$myVar,"gamma")
+shapeML <- gammaPars$estimate["shape"]
+rateML <- gammaPars$estimate["rate"]
+
+stat4 <- stat_function(aes(x = xval, y = ..y..), fun = dgamma, colour="brown", n = length(habs$myVar), args = list(shape=shapeML, rate=rateML))
+ p1 + stat + stat2 + stat3 + stat4
+```
+
+
+
+Plotting beta probability density on the histogram:
+```{r}
+pSpecial <- ggplot(data=habs, aes(x=myVar/(max(myVar + 0.1)), y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) + 
+  xlim(c(0,1)) +
+  geom_density(size=0.75,linetype="dotted")
+
+betaPars <- fitdistr(x=habs$myVar/max(habs$myVar + 0.1),start=list(shape1=1,shape2=2),"beta")
+shape1ML <- betaPars$estimate["shape1"]
+shape2ML <- betaPars$estimate["shape2"]
+
+statSpecial <- stat_function(aes(x = xval, y = ..y..), fun = dbeta, colour="orchid", n = length(habs$myVar), args = list(shape1=shape1ML,shape2=shape2ML))
+pSpecial + statSpecial
+```
+
+
+<u>Simulated New Dataset</u>
+
+Creating a simulated dataset based on gamma probability density. Here I used "rgamma" instead of "dgamma", which will generate random values.
+```{r}
+simulated_dataset <- rgamma(n=length(habs$myVar),shape=shapeML,rate=rateML)
+simulated_z <- 1:length(habs$myVar)
+simulated_df <- data.frame(simulated_dataset,simulated_z)
+```
+
+Summary of simulated dataset:
+```{r}
+str(simulated_dataset)
+summary(simulated_dataset)
+```
+
+Plotting the histogram based on gamma probability density, which appears to best fit the data compared to normal, exponential, uniform, and beta probability.
+```{r}
+p2 <- ggplot(data=simulated_df, aes(x=simulated_dataset, y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",linewidth=0.2) 
+p2 + stat4
 ```

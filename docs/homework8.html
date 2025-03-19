@@ -273,14 +273,142 @@ Distributions</u></h1>
 </div>
 
 
+<p><break></break></p>
+<p>Data for this homework was obtained from www.data.gov and is titled
+“Harmful Algal Bloom Statewide Occurrence Summary: 2012-2018” from the
+State of New York. For context, HABs/habs = Harmful Algal Blooms</p>
 <p>Importing necessary libraries:</p>
 <pre class="r"><code>library(ggplot2)
 library(MASS)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;MASS&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     select</code></pre>
+<p>Importing dataset:</p>
+<pre class="r"><code>habs &lt;- read.table(&quot;HABs_2012-2018.csv&quot;, header=TRUE,sep=&quot;,&quot;)</code></pre>
+<p>Cleaning up data and assigning variable of interest:</p>
+<pre class="r"><code>habs &lt;- na.omit(habs)
+habs$myVar &lt;- habs$Number.of.Weeks.on.DEC.Notification.List</code></pre>
+<p>Summarizing dataset:</p>
+<pre class="r"><code>str(habs$myVar)</code></pre>
+<pre><code>##  int [1:737] 10 12 25 4 4 14 15 18 5 33 ...</code></pre>
+<pre class="r"><code>summary(habs$myVar)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    5.00    9.00   10.26   15.00   33.00</code></pre>
+<p>Histogram of Number of Weeks HABs were listed on NYSDEC Notification
+List:</p>
+<pre class="r"><code>p1 &lt;- ggplot(data=habs, aes(x=myVar, y=..density..)) +
+  geom_histogram(color=&quot;grey60&quot;,fill=&quot;cornsilk&quot;,size=0.2) </code></pre>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<pre class="r"><code>print(p1)</code></pre>
+<pre><code>## Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+## ℹ Please use `after_stat(density)` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="homework8_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Adding empirical density curve:</p>
+<pre class="r"><code>p1 &lt;-  p1 +  geom_density(linetype=&quot;dotted&quot;,size=0.75)
+print(p1)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="homework8_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Maximum likelihood parameters for normal distribution</p>
+<pre class="r"><code>normPars &lt;- fitdistr(habs$myVar,&quot;normal&quot;)
+print(normPars)</code></pre>
+<pre><code>##       mean          sd    
+##   10.2605156    6.8003094 
+##  ( 0.2504926) ( 0.1771250)</code></pre>
+<pre class="r"><code>str(normPars)</code></pre>
+<pre><code>## List of 5
+##  $ estimate: Named num [1:2] 10.3 6.8
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;mean&quot; &quot;sd&quot;
+##  $ sd      : Named num [1:2] 0.25 0.177
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;mean&quot; &quot;sd&quot;
+##  $ vcov    : num [1:2, 1:2] 0.0627 0 0 0.0314
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:2] &quot;mean&quot; &quot;sd&quot;
+##   .. ..$ : chr [1:2] &quot;mean&quot; &quot;sd&quot;
+##  $ n       : int 737
+##  $ loglik  : num -2459
+##  - attr(*, &quot;class&quot;)= chr &quot;fitdistr&quot;</code></pre>
+<pre class="r"><code>normPars$estimate[&quot;mean&quot;]</code></pre>
+<pre><code>##     mean 
+## 10.26052</code></pre>
+<p>Plotting normal probability density on the histogram:</p>
+<pre class="r"><code>meanML &lt;- normPars$estimate[&quot;mean&quot;]
+sdML &lt;- normPars$estimate[&quot;sd&quot;]
+
+xval &lt;- seq(0,max(habs$myVar),len=length(habs$myVar))
+
+ stat &lt;- stat_function(aes(x = xval, y = ..y..), fun = dnorm, colour=&quot;red&quot;, n = length(habs$myVar), args = list(mean = meanML, sd = sdML))
+ p1 + stat</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="homework8_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Plotting exponential probability density on the histogram:</p>
+<pre class="r"><code>expoPars &lt;- fitdistr(habs$myVar,&quot;exponential&quot;)
+rateML &lt;- expoPars$estimate[&quot;rate&quot;]
+
+stat2 &lt;- stat_function(aes(x = xval, y = ..y..), fun = dexp, colour=&quot;blue&quot;, n = length(habs$myVar), args = list(rate=rateML))
+ p1 + stat + stat2</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="homework8_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+Plotting uniform probability density on the histogram:</p>
+<pre class="r"><code>stat3 &lt;- stat_function(aes(x = xval, y = ..y..), fun = dunif, colour=&quot;darkgreen&quot;, n = length(habs$myVar), args = list(min=min(habs$myVar), max=max(habs$myVar)))
+ p1 + stat + stat2 + stat3</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="homework8_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Plotting gamma probability density on the histogram:</p>
+<pre class="r"><code>gammaPars &lt;- fitdistr(habs$myVar,&quot;gamma&quot;)</code></pre>
+<pre><code>## Warning in densfun(x, parm[1], parm[2], ...): NaNs produced
+## Warning in densfun(x, parm[1], parm[2], ...): NaNs produced
+## Warning in densfun(x, parm[1], parm[2], ...): NaNs produced
+## Warning in densfun(x, parm[1], parm[2], ...): NaNs produced
+## Warning in densfun(x, parm[1], parm[2], ...): NaNs produced</code></pre>
+<pre class="r"><code>shapeML &lt;- gammaPars$estimate[&quot;shape&quot;]
+rateML &lt;- gammaPars$estimate[&quot;rate&quot;]
+
+stat4 &lt;- stat_function(aes(x = xval, y = ..y..), fun = dgamma, colour=&quot;brown&quot;, n = length(habs$myVar), args = list(shape=shapeML, rate=rateML))
+ p1 + stat + stat2 + stat3 + stat4</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="homework8_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Plotting beta probability density on the histogram:</p>
+<pre class="r"><code>pSpecial &lt;- ggplot(data=habs, aes(x=myVar/(max(myVar + 0.1)), y=..density..)) +
+  geom_histogram(color=&quot;grey60&quot;,fill=&quot;cornsilk&quot;,size=0.2) + 
+  xlim(c(0,1)) +
+  geom_density(size=0.75,linetype=&quot;dotted&quot;)
+
+betaPars &lt;- fitdistr(x=habs$myVar/max(habs$myVar + 0.1),start=list(shape1=1,shape2=2),&quot;beta&quot;)
+shape1ML &lt;- betaPars$estimate[&quot;shape1&quot;]
+shape2ML &lt;- betaPars$estimate[&quot;shape2&quot;]
+
+statSpecial &lt;- stat_function(aes(x = xval, y = ..y..), fun = dbeta, colour=&quot;orchid&quot;, n = length(habs$myVar), args = list(shape1=shape1ML,shape2=shape2ML))
+pSpecial + statSpecial</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_bar()`).</code></pre>
+<p><img src="homework8_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><u>Simulated New Dataset</u></p>
+<p>Creating a simulated dataset based on gamma probability density. Here
+I used “rgamma” instead of “dgamma”, which will generate random
+values.</p>
+<pre class="r"><code>simulated_dataset &lt;- rgamma(n=length(habs$myVar),shape=shapeML,rate=rateML)
+simulated_z &lt;- 1:length(habs$myVar)
+simulated_df &lt;- data.frame(simulated_dataset,simulated_z)</code></pre>
+<p>Summary of simulated dataset:</p>
+<pre class="r"><code>str(simulated_dataset)</code></pre>
+<pre><code>##  num [1:737] 10.85 14.46 6.28 2.83 3.51 ...</code></pre>
+<pre class="r"><code>summary(simulated_dataset)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.1474  5.3086  8.8811 10.2518 13.5070 43.1930</code></pre>
+<p>Plotting the histogram based on gamma probability density, which
+appears to best fit the data compared to normal, exponential, uniform,
+and beta probability.</p>
+<pre class="r"><code>p2 &lt;- ggplot(data=simulated_df, aes(x=simulated_dataset, y=..density..)) +
+  geom_histogram(color=&quot;grey60&quot;,fill=&quot;cornsilk&quot;,linewidth=0.2) 
+p2 + stat4</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="homework8_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 
 
 
