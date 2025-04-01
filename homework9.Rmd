@@ -1,0 +1,21 @@
+---
+title: "<u>Homework 9 – Strategic Coding Practices</u>"
+author: "Grace (Rei) Jia"
+date: "2025-03-26"
+output: 
+  html_document:
+    theme: journal
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
