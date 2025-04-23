@@ -1,0 +1,12 @@
+logfile: logfile.txt
+#######################
+R version: R version 4.4.2 (2024-10-31)
+platform: aarch64-apple-darwin20
+running: macOS Sequoia 15.3.2
+#----------------------
+random number seed: 880195730
+timestamp: Thu Apr 17 15:12:28 2025
+#----------------------
+libraries loaded:
+devtools dplyr forcats ggplot2 lubridate pracma purrr readr stringr tibble tidyr tidyverse upscaler usethis
+#######################

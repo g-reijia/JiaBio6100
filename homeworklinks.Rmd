@@ -27,15 +27,10 @@ Thanks George, you rock!
 
 - March 19 | Week 9 | [Simulating and Fitting Data Distributions](homework8.html)
 
-- March 26 | Week 10 | [Strategic Coding Practices](homework9.html)
+- March 26 | Week 10 | [Strategic Coding Practices] (homework9.html) - not ready yet
 
 - April 2 | Week 11 | No Homework / Catch up day
 
-- April 9 | Week 12 |
+- April 9 | Week 12 | [Advanced ggplotting](homework10.html)
 
-- April 16 | Week 13 |
-
-- April 23 | Week 14 |
-
-- April 30 | Week 15 |
 

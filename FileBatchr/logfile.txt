@@ -1,0 +1,12 @@
+logfile: logfile.txt
+#######################
+R version: R version 4.4.2 (2024-10-31)
+platform: aarch64-apple-darwin20
+running: macOS Sequoia 15.3.2
+#----------------------
+random number seed: 528221549
+timestamp: Tue Apr 22 14:32:22 2025
+#----------------------
+libraries loaded:
+ggplot2 upscaler
+#######################
