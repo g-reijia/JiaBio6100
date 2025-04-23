@@ -299,16 +299,13 @@ habs$myVar &lt;- habs$Number.of.Weeks.on.DEC.Notification.List</code></pre>
 <p>Histogram of Number of Weeks HABs were listed on NYSDEC Notification
 List:</p>
 <pre class="r"><code>p1 &lt;- ggplot(data=habs, aes(x=myVar, y=..density..)) +
-  geom_histogram(color=&quot;grey60&quot;,fill=&quot;cornsilk&quot;,size=0.2) </code></pre>
-<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-## ℹ Please use `linewidth` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
-<pre class="r"><code>print(p1)</code></pre>
+  geom_histogram(color=&quot;grey60&quot;,fill=&quot;cornsilk&quot;,size=0.2) 
+print(p1)</code></pre>
 <pre><code>## Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
 ## ℹ Please use `after_stat(density)` instead.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="homework8_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Adding empirical density curve:</p>
@@ -400,10 +397,10 @@ simulated_z &lt;- 1:length(habs$myVar)
 simulated_df &lt;- data.frame(simulated_dataset,simulated_z)</code></pre>
 <p>Summary of simulated dataset:</p>
 <pre class="r"><code>str(simulated_dataset)</code></pre>
-<pre><code>##  num [1:737] 5.11 4.94 5.78 16.64 8.51 ...</code></pre>
+<pre><code>##  num [1:737] 6.95 26.69 6.74 8.45 6.49 ...</code></pre>
 <pre class="r"><code>summary(simulated_dataset)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.1141  4.7620  8.7611 10.3039 13.9085 43.5105</code></pre>
+##  0.1169  5.2108  8.4450 10.1992 13.7058 44.9376</code></pre>
 <p>Plotting the histogram based on gamma probability density, which
 appears to best fit the data compared to normal, exponential, uniform,
 and beta probability.</p>

@@ -9,9 +9,9 @@ create_toy_data_files <- function(nrow=NULL,ncol=NULL,nfiles=NULL){
 
   # assign parameter defaults
   if (is.null(nrow) | is.null(ncol) | is.null(nfiles)) {
-    nrow=10
+    nrow=15
     ncol=10
-    nfiles=15
+    nfiles=8
   }
 
 file_labels <- create_padded_labels(n=nfiles, string="Toy_Data", suffix=".csv")
@@ -23,7 +23,7 @@ file_labels <- create_padded_labels(n=nfiles, string="Toy_Data", suffix=".csv")
 for (i in 1:nfiles) {
 
     # build file labels
-df <- as.data.frame(matrix(runif(nrow*ncol),
+df <- as.data.frame(matrix(runif(nrow*ncol), # a matrix always needs an atomic vector!
                              nrow=nrow,
                              ncol=ncol))
 
