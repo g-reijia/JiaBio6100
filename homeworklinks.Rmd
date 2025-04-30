@@ -27,7 +27,7 @@ Thanks George, you rock!
 
 - March 19 | Week 9 | [Simulating and Fitting Data Distributions](homework8.html)
 
-- March 26 | Week 10 | [Strategic Coding Practices](homework9.html) - not ready yet
+- March 26 | Week 10 | [Strategic Coding Practices](JiaBio6100_Homework9.zip)
 
 - April 2 | Week 11 | No Homework / Catch up day
 

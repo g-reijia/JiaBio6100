@@ -4,9 +4,17 @@ R version: R version 4.4.2 (2024-10-31)
 platform: aarch64-apple-darwin20
 running: macOS Sequoia 15.3.2
 #----------------------
-random number seed: 528221549
-timestamp: Tue Apr 22 14:32:22 2025
+random number seed: 326221337
+timestamp: Thu Apr 24 14:01:05 2025
 #----------------------
 libraries loaded:
 ggplot2 upscaler
 #######################
+INFO  [24-Apr 14:01:05] create toy data files
+INFO  [24-Apr 14:01:05] run global variables
+INFO  [24-Apr 14:01:05] run for loop
+INFO  [24-Apr 14:01:05] start of for loop
+........
+INFO  [24-Apr 14:01:05] 
+INFO  [24-Apr 14:01:05] run again with filebatchr function
+INFO  [24-Apr 14:01:05] end of main script

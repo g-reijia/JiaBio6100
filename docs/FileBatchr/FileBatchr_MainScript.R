@@ -25,40 +25,37 @@
 
 # --------------------------------------------------------------------------
 
+# Initialize ----
 library(upscaler)
 library(ggplot2)
 
 set_up_log()
-add_folder()
+#add_folder()
 source_batch(folder="Functions")
+
+# Create Toy Data Files ----
+l("create toy data files")
+
 #create_toy_data_files(nrow=15, ncol = 10, nfiles=8)
 
-# folder 'OriginalData' created
-# folder 'CleanedData' created
-# folder 'Scripts' created
-# folder 'Functions' created
-# folder 'Plots' created
-# folder 'Outputs' created
-# folder 'DataObjects' created
-# folder 'Markdown' created
-
-build_function("create_toy_data_files")
+#build_function("create_toy_data_files")
 
 #Function file "Functions/Createtoydatafiles.R" built.
 
-build_function("crunch_data")
-
-list.files()
-list.files(pattern="\\.")
-basename(list.files(path="CleanedData/ToydataFiles",
-                  pattern="\\.csv$",
-                  full.names=TRUE))
+# build_function("crunch_data")
+#
+# list.files()
+# list.files(pattern="\\.")
+# basename(list.files(path="CleanedData/ToydataFiles",
+#                   pattern="\\.csv$",
+#                   full.names=TRUE))
 
 ####################
 
 list.files(pattern="\\.")
 
-# create vector of file names with paths
+# Global Variables
+l("run global variables")
 file_names <- list.files(pattern="\\.csv$",
               path="CleanedData/ToyDataFiles",
               full.names=TRUE)
@@ -66,30 +63,30 @@ crunch_cols <- c(4,5)
 param_names <- c("avg","skew","weird")
 
 # use lapply to run it all with two lines of code
-z <- lapply(file_names, read.table,sep=",") # lapply wants the LIST and the FUNCTION that will be applied to this function
-# take output that we just created that operated on file names and use this input to 'crunch_data' which will go into new list structure.
-final <- lapply(z,crunch_data)
+# z <- lapply(file_names, read.table,sep=",") # lapply wants the LIST and the FUNCTION that will be applied to this function
+# # take output that we just created that operated on file names and use this input to 'crunch_data' which will go into new list structure.
+# final <- lapply(z,crunch_data)
 
 
-# do the work in a for loop
+# Run For Loop ----
+l("run for loop")
 output_df <- as.data.frame(matrix(rep(NA,length(file_names)*length(param_names)),nrow=length(file_names),ncol=length(param_names)))
-
 names(output_df)=param_names
-
 nobs <- rep(NA,length(file_names)) # empty vector for row counts
 
+l("start of for loop")
 for (i in 1:length(file_names)){
+  show_progress_bar(index=i)
   df <- read.table(file=file_names[[i]],
                    header = TRUE,
                    sep=",")
   . <- crunch_data(df=df,
-                   crunch_cols=unlist(crunch_cols),
                    param_names = param_names)
 
   output_df[i,] <- .
   nobs[i] <- nrow(df)
 }
-
+l()
 output_df
 
 # add initial metadata columns (ID,filename,nobs)
@@ -97,7 +94,10 @@ output_df <- cbind(ID=1:length(file_names),file=basename(unlist(file_names)),nob
 
 output_df
 
-# filebatcher(file_names=file_names,
-#             fun=crunch_data,
-#             crunch_cols=crunch_cols,
-#             param_names=param_names)
+# Run With Filebatcher Function ----
+l("run again with filebatchr function")
+file_batcher(file_names=file_names,
+            fun=crunch_data,
+            param_names=param_names)
+
+l("end of main script")
